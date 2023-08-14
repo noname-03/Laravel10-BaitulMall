@@ -14,13 +14,12 @@
                 <a class="d-block">{{ Auth::User()->name }}</a>
             </div>
         </div>
-
         <!-- Sidebar Menu -->
         <nav class="mt-2">
             <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu"
                 data-accordion="false">
                 <!-- Add icons to the links using the .nav-icon class
-               with font-awesome or any other icon font library -->
+       with font-awesome or any other icon font library -->
 
                 <li class="nav-item">
                     <a href="{{ route('home') }}" class="nav-link @yield('dashboard')">
@@ -31,7 +30,7 @@
                     </a>
                 </li>
 
-                <li class="nav-item @yield('data.otdp')">
+                {{-- <li class="nav-item @yield('data.otdp')">
                     <a href="#" class="nav-link @yield('nav')">
                         <i class="nav-icon fas fa-table"></i>
                         <p>
@@ -41,8 +40,7 @@
                     </a>
 
                     <ul class="nav nav-treeview">
-                        {{-- otdp --}}
-                        {{-- <li class="nav-item">
+                        <li class="nav-item">
                             <a href="{{ route('otdp.index') }}" class="nav-link @yield('otdp')">
                                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i class="fa fa-bars nav-icon"></i>
                                 <p>Data Otdp</p>
@@ -57,10 +55,29 @@
                                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i class="fa fa-bars nav-icon"></i>
                                 <p>Laporan</p>
                             </a>
-                        </li> --}}
+                        </li>
+                    </ul>
+                </li> --}}
+
+                <li class="nav-item @yield('data')">
+                    <a href="#" class="nav-link @yield('nav')">
+                        <i class="nav-icon fas fa-user"></i>
+                        <p>
+                            User
+                            <i class="fas fa-angle-left right"></i>
+                        </p>
+                    </a>
+
+                    <ul class="nav nav-treeview">
+                        {{-- user --}}
+                        <li class="nav-item">
+                            <a href="{{ route('admin.user.index') }}" class="nav-link @yield('user')">
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i class="fa fa-bars nav-icon"></i>
+                                <p>Data User</p>
+                            </a>
+                        </li>
                     </ul>
                 </li>
-
             </ul>
         </nav>
         <!-- /.sidebar-menu -->
