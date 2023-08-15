@@ -81,6 +81,7 @@ class MuzakiController extends Controller
      */
     public function destroy(Muzaki $muzaki)
     {
-        //
+        $muzaki->delete();
+        return redirect()->route('admin.muzaki.index');
     }
 }
