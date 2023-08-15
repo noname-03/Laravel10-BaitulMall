@@ -30,34 +30,25 @@
                     </a>
                 </li>
 
-                {{-- <li class="nav-item @yield('data.otdp')">
-                    <a href="#" class="nav-link @yield('nav')">
-                        <i class="nav-icon fas fa-table"></i>
+                <li class="nav-item @yield('data.master')">
+                    <a href="#" class="nav-link @yield('nav.master')">
+                        <i class="nav-icon fas fa-user"></i>
                         <p>
-                            Data Otdp
+                            Master Data
                             <i class="fas fa-angle-left right"></i>
                         </p>
                     </a>
 
                     <ul class="nav nav-treeview">
+                        {{-- income --}}
                         <li class="nav-item">
-                            <a href="{{ route('otdp.index') }}" class="nav-link @yield('otdp')">
+                            <a href="{{ route('admin.income.index') }}" class="nav-link @yield('income')">
                                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i class="fa fa-bars nav-icon"></i>
-                                <p>Data Otdp</p>
-                            </a>
-                            @role('admin')
-                                <a href="{{ route('recomendation.index') }}" class="nav-link @yield('recomendation')">
-                                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i class="fa fa-bars nav-icon"></i>
-                                    <p>Rekomendasi Bantuan</p>
-                                </a>
-                            @endrole
-                            <a href="{{ route('hasil.index') }}" class="nav-link @yield('hasil')">
-                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i class="fa fa-bars nav-icon"></i>
-                                <p>Laporan</p>
+                                <p>Data Pemasukan</p>
                             </a>
                         </li>
                     </ul>
-                </li> --}}
+                </li>
 
                 <li class="nav-item @yield('data')">
                     <a href="#" class="nav-link @yield('nav')">
