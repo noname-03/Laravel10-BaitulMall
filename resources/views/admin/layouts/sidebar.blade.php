@@ -81,6 +81,13 @@
                                 <p>Data Penyalur</p>
                             </a>
                         </li>
+                        {{-- expenditureMal --}}
+                        <li class="nav-item">
+                            <a href="{{ route('admin.expenditureMal.index') }}" class="nav-link @yield('expenditureMal')">
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                <p>Data Pengeluran</p>
+                            </a>
+                        </li>
                     </ul>
                 </li>
 

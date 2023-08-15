@@ -19,7 +19,8 @@ class DatabaseSeeder extends Seeder
             ExpenditureSeeder::class,
             MuzakiSeeder::class,
             ReceptionSeeder::class,
-            DistributorSeeder::class
+            DistributorSeeder::class,
+            ExpenditureMalSeeder::class,
         ]);
     }
 }
