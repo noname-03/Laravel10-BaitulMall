@@ -22,7 +22,7 @@
        with font-awesome or any other icon font library -->
 
                 <li class="nav-item">
-                    <a href="{{ route('home') }}" class="nav-link @yield('dashboard')">
+                    <a href="{{ route('admin.home') }}" class="nav-link @yield('dashboard')">
                         <i class="nav-icon fas fa-tachometer-alt"></i>
                         <p>
                             Dashboard
@@ -52,6 +52,20 @@
                             <a href="{{ route('admin.mustahik.index') }}" class="nav-link @yield('mustahik')">
                                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                                 <p>Data Mustahik</p>
+                            </a>
+                        </li>
+                        {{-- slide --}}
+                        <li class="nav-item">
+                            <a href="{{ route('admin.slide.index') }}" class="nav-link @yield('slide')">
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                <p>Data Gambar</p>
+                            </a>
+                        </li>
+                        {{-- news --}}
+                        <li class="nav-item">
+                            <a href="{{ route('admin.news.index') }}" class="nav-link @yield('news')">
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                <p>Data Berita</p>
                             </a>
                         </li>
                     </ul>

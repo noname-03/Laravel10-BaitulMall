@@ -6,18 +6,21 @@ use App\Http\Controllers\ExpenditureMalController;
 use App\Http\Controllers\IncomeController;
 use App\Http\Controllers\MustahikController;
 use App\Http\Controllers\MuzakiController;
+use App\Http\Controllers\NewsController;
 use App\Http\Controllers\ReceptionController;
+use App\Http\Controllers\SlideController;
 use App\Models\ExpenditureMal;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\GuestController;
 
 Route::get('/', function () {
-    return redirect()->route('login');
+    return redirect()->route('guest.home');
 });
 
 Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/home', [GuestController::class, 'index'])->name('guest.home');
 
 Route::prefix('/admin')->name('admin.')->middleware('auth')->group(function () {
     Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
@@ -29,4 +32,6 @@ Route::prefix('/admin')->name('admin.')->middleware('auth')->group(function () {
     Route::resource('reception', ReceptionController::class);
     Route::resource('distributor', DistributorController::class);
     Route::resource('expenditureMal', ExpenditureMalController::class);
+    Route::resource('slide', SlideController::class);
+    Route::resource('news', NewsController::class);
 });
