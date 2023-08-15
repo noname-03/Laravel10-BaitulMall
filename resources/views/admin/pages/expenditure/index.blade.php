@@ -1,7 +1,7 @@
 @extends('admin.layouts.app')
-@section('title', 'Data Pemasukan')
+@section('title', 'Data Pengeluaran')
 @section('data.kas', 'menu-open')
-@section('income', 'active')
+@section('expenditure', 'active')
 @section('content')
     <div class="content-wrapper">
         <!-- Content Header (Page header) -->
@@ -9,7 +9,7 @@
             <div class="container-fluid">
                 <div class="row mb-2">
                     <div class="col-sm-6">
-                        <h1>Data Pemasukan</h1>
+                        <h1>Data Pengeluaran</h1>
                     </div>
                 </div>
             </div><!-- /.container-fluid -->
@@ -22,7 +22,7 @@
                     <div class="col-12">
                         <div class="card">
                             <div class="card-header">
-                                <a href="{{ route('admin.income.create') }}" type="button"
+                                <a href="{{ route('admin.expenditure.create') }}" type="button"
                                     class="btn btn-primary btn-sm">Tambah
                                     Data</a>
 
@@ -40,18 +40,18 @@
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        @foreach ($incomes as $item)
+                                        @foreach ($expenditures as $item)
                                             <tr>
                                                 <td>{{ $loop->iteration }}</td>
                                                 <td>{{ $item->description }}</td>
                                                 <td>{{ $item->date }}</td>
                                                 <td>{{ $item->amount }}</td>
                                                 <td style="text-align: center;">
-                                                    <form action="{{ route('admin.income.destroy', $item->id) }}"
+                                                    <form action="{{ route('admin.expenditure.destroy', $item->id) }}"
                                                         method="POST">
                                                         @method('DELETE') @csrf
                                                         <div class="btn-group" role="group" aria-label="Basic example">
-                                                            <a href="{{ route('admin.income.edit', $item->id) }}"
+                                                            <a href="{{ route('admin.expenditure.edit', $item->id) }}"
                                                                 class="btn btn-sm btn-outline-secondary">
                                                                 Edit
                                                             </a>

@@ -34,7 +34,34 @@
                     <a href="#" class="nav-link @yield('nav.master')">
                         <i class="nav-icon fas fa-user"></i>
                         <p>
-                            Master Data
+                            Data Master
+                            <i class="fas fa-angle-left right"></i>
+                        </p>
+                    </a>
+
+                    <ul class="nav nav-treeview">
+                        {{-- muzaki --}}
+                        {{-- <li class="nav-item">
+                            <a href="{{ route('admin.muzaki.index') }}" class="nav-link @yield('muzaki')">
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                <p>Data Muzaki</p>
+                            </a>
+                        </li> --}}
+                        {{-- expenditure --}}
+                        <li class="nav-item">
+                            <a href="{{ route('admin.expenditure.index') }}" class="nav-link @yield('expenditure')">
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                <p>Data Pengeluaran</p>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+
+                <li class="nav-item @yield('data.kas')">
+                    <a href="#" class="nav-link @yield('nav.kas')">
+                        <i class="nav-icon fas fa-user"></i>
+                        <p>
+                            Kas Masjid
                             <i class="fas fa-angle-left right"></i>
                         </p>
                     </a>
@@ -43,8 +70,15 @@
                         {{-- income --}}
                         <li class="nav-item">
                             <a href="{{ route('admin.income.index') }}" class="nav-link @yield('income')">
-                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i class="fa fa-bars nav-icon"></i>
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                                 <p>Data Pemasukan</p>
+                            </a>
+                        </li>
+                        {{-- expenditure --}}
+                        <li class="nav-item">
+                            <a href="{{ route('admin.expenditure.index') }}" class="nav-link @yield('expenditure')">
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                <p>Data Pengeluaran</p>
                             </a>
                         </li>
                     </ul>

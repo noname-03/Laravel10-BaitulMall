@@ -1,6 +1,6 @@
 @extends('admin.layouts.app')
 @section('title', 'Tambah Data Pemasukan')
-@section('data.master', 'menu-open')
+@section('data.kas', 'menu-open')
 @section('income', 'active')
 @section('content')
     <div class="content-wrapper" style="min-height: 1345.31px;">

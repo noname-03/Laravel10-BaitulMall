@@ -1,7 +1,7 @@
 @extends('admin.layouts.app')
-@section('title', 'Tambah Data Pemasukan')
+@section('title', 'Tambah Data Pengeluaran')
 @section('data.kas', 'menu-open')
-@section('income', 'active')
+@section('expenditure', 'active')
 @section('content')
     <div class="content-wrapper" style="min-height: 1345.31px;">
         <!-- Content Header (Page header) -->
@@ -9,7 +9,7 @@
             <div class="container-fluid">
                 <div class="row mb-2">
                     <div class="col-sm-6">
-                        <h1>Formulir Pemasukan</h1>
+                        <h1>Formulir Pengeluaran</h1>
                     </div>
                 </div>
             </div><!-- /.container-fluid -->
@@ -21,19 +21,19 @@
                 <!-- SELECT2 EXAMPLE -->
                 <div class="card card-default">
                     <div class="card-header">
-                        <h3 class="card-title">Tambah Data Pemasukan</h3>
+                        <h3 class="card-title">Tambah Data Pengeluaran</h3>
                     </div>
                     <!-- /.card-header -->
                     <div class="card-body" style="display: block;">
                         <div class="row">
                             <div class="col-md-12">
-                                <form action="{{ route('admin.income.update', $income->id) }}" method="post">
+                                <form action="{{ route('admin.expenditure.update', $expenditure->id) }}" method="post">
                                     @csrf @method('put')
                                     <div class="form-row">
                                         <div class="form-group col-md-4">
                                             <label for="description">Deskripsi</label>
                                             <textarea class="form-control  @error('description') is-invalid @enderror" name="description" id="description"
-                                                cols="20" rows="4">{{ old('description', $income->description) }}</textarea>
+                                                cols="20" rows="4">{{ old('description', $expenditure->description) }}</textarea>
                                             @error('name')
                                                 <div class="invalid-feedback">
                                                     {{ $message }}
@@ -46,7 +46,7 @@
                                                 class="form-control  @error('date')
                                             is-invalid @enderror"
                                                 id="date" placeholder="Masukan Tanggal" name="date"
-                                                value="{{ old('date', $income->date) }}">
+                                                value="{{ old('date', $expenditure->date) }}">
                                             @error('date')
                                                 <div class="invalid-feedback">
                                                     {{ $message }}
@@ -59,7 +59,7 @@
                                                 class="form-control  @error('amount')
                                             is-invalid @enderror"
                                                 id="amount" placeholder="Masukan Jumlah" name="amount"
-                                                value="{{ old('amount', $income->amount) }}">
+                                                value="{{ old('amount', $expenditure->amount) }}">
                                             @error('amount')
                                                 <div class="invalid-feedback">
                                                     {{ $message }}
