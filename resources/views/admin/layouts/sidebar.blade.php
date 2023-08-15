@@ -74,11 +74,11 @@
                                 <p>Data Penerimaan</p>
                             </a>
                         </li>
-                        {{-- mustahik --}}
+                        {{-- distributor --}}
                         <li class="nav-item">
-                            <a href="{{ route('admin.mustahik.index') }}" class="nav-link @yield('mustahik')">
+                            <a href="{{ route('admin.distributor.index') }}" class="nav-link @yield('distributor')">
                                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                <p>Data Mustahik</p>
+                                <p>Data Penyalur</p>
                             </a>
                         </li>
                     </ul>
