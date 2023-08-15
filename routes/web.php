@@ -4,6 +4,7 @@ use App\Http\Controllers\ExpenditureController;
 use App\Http\Controllers\IncomeController;
 use App\Http\Controllers\MustahikController;
 use App\Http\Controllers\MuzakiController;
+use App\Http\Controllers\ReceptionController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
 
@@ -21,4 +22,5 @@ Route::prefix('/admin')->name('admin.')->middleware('auth')->group(function () {
     Route::resource('expenditure', ExpenditureController::class);
     Route::resource('muzaki', MuzakiController::class);
     Route::resource('mustahik', MustahikController::class);
+    Route::resource('reception', ReceptionController::class);
 });

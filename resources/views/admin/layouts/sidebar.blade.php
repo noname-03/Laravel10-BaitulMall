@@ -57,6 +57,33 @@
                     </ul>
                 </li>
 
+                <li class="nav-item @yield('data.baitul.mal')">
+                    <a href="#" class="nav-link @yield('nav.baitul.mal')">
+                        <i class="nav-icon fas fa-user"></i>
+                        <p>
+                            Data Baitul Mal
+                            <i class="fas fa-angle-left right"></i>
+                        </p>
+                    </a>
+
+                    <ul class="nav nav-treeview">
+                        {{-- reception --}}
+                        <li class="navπ-item">
+                            <a href="{{ route('admin.reception.index') }}" class="nav-link @yield('reception')">
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                <p>Data Penerimaan</p>
+                            </a>
+                        </li>
+                        {{-- mustahik --}}
+                        <li class="nav-item">
+                            <a href="{{ route('admin.mustahik.index') }}" class="nav-link @yield('mustahik')">
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                <p>Data Mustahik</p>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+
                 <li class="nav-item @yield('data.kas')">
                     <a href="#" class="nav-link @yield('nav.kas')">
                         <i class="nav-icon fas fa-user"></i>
