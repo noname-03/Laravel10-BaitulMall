@@ -34,7 +34,7 @@
                                         <tr>
                                             <th style="width: 7%">No</th>
                                             <th>Rw</th>
-                                            <th>Priode</th>
+                                            <th>Periode</th>
                                             <th>Jumlah</th>
                                             <th style="width: 18%">Action</th>
                                         </tr>
@@ -45,7 +45,7 @@
                                                 <td>{{ $loop->iteration }}</td>
                                                 <td>{{ $item->rw }}</td>
                                                 <td>{{ $item->priode }}</td>
-                                                <td>{{ $item->amount }}</td>
+                                                <td>@currency($item->amount)</td>
                                                 <td style="text-align: center;">
                                                     <form action="{{ route('admin.reception.destroy', $item->id) }}"
                                                         method="POST">

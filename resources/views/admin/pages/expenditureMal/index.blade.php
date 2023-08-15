@@ -33,7 +33,7 @@
                                     <thead>
                                         <tr>
                                             <th style="width: 7%">No</th>
-                                            <th>Priode</th>
+                                            <th>Periode</th>
                                             <th>Jumlah</th>
                                             <th>Keterangan</th>
                                             <th style="width: 18%">Action</th>
@@ -44,7 +44,7 @@
                                             <tr>
                                                 <td>{{ $loop->iteration }}</td>
                                                 <td>{{ $item->priode }}</td>
-                                                <td>{{ $item->amount }}</td>
+                                                <td>@currency($item->amount)</td>
                                                 <td>{{ $item->description }}</td>
                                                 <td style="text-align: center;">
                                                     <form action="{{ route('admin.expenditureMal.destroy', $item->id) }}"

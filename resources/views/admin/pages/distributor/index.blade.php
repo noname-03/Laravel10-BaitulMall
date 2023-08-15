@@ -1,5 +1,5 @@
 @extends('admin.layouts.app')
-@section('title', 'Data Penyalur')
+@section('title', 'Data Penyaluran')
 @section('data.baitul.mal', 'menu-open')
 @section('distributor', 'active')
 @section('content')
@@ -9,7 +9,7 @@
             <div class="container-fluid">
                 <div class="row mb-2">
                     <div class="col-sm-6">
-                        <h1>Data Penyalur</h1>
+                        <h1>Data Penyaluran</h1>
                     </div>
                 </div>
             </div><!-- /.container-fluid -->
@@ -34,7 +34,7 @@
                                         <tr>
                                             <th style="width: 7%">No</th>
                                             <th>Rw</th>
-                                            <th>Priode</th>
+                                            <th>Periode</th>
                                             <th>Jumlah</th>
                                             <th style="width: 18%">Action</th>
                                         </tr>
@@ -45,7 +45,7 @@
                                                 <td>{{ $loop->iteration }}</td>
                                                 <td>{{ $item->rw }}</td>
                                                 <td>{{ $item->priode }}</td>
-                                                <td>{{ $item->amount }}</td>
+                                                <td>{{ $item->amount }} Orang</td>
                                                 <td style="text-align: center;">
                                                     <form action="{{ route('admin.distributor.destroy', $item->id) }}"
                                                         method="POST">

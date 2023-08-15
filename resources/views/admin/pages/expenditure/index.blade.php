@@ -45,7 +45,7 @@
                                                 <td>{{ $loop->iteration }}</td>
                                                 <td>{{ $item->description }}</td>
                                                 <td>{{ $item->date }}</td>
-                                                <td>{{ $item->amount }}</td>
+                                                <td>@currency($item->amount)</td>
                                                 <td style="text-align: center;">
                                                     <form action="{{ route('admin.expenditure.destroy', $item->id) }}"
                                                         method="POST">

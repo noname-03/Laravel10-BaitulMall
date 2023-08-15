@@ -85,7 +85,7 @@
                                             <input type="number"
                                                 class="form-control  @error('amount')
                                             is-invalid @enderror"
-                                                id="amount" placeholder="Masukan amount" name="amount"
+                                                id="amount" placeholder="Masukan Jumlah" name="amount"
                                                 value="{{ old('amount', $muzaki->amount) }}">
                                             @error('amount')
                                                 <div class="invalid-feedback">

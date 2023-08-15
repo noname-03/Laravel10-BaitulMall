@@ -45,7 +45,7 @@
                                             @enderror
                                         </div>
                                         <div class="form-group col-md-4">
-                                            <label for="date">Priode</label>
+                                            <label for="date">Periode</label>
                                             <input type="date"
                                                 class="form-control  @error('date')
                                             is-invalid @enderror"

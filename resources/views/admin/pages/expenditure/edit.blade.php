@@ -55,7 +55,7 @@
                                         </div>
                                         <div class="form-group col-md-4">
                                             <label for="amount">Jumlah</label>
-                                            <input type="text"
+                                            <input type="number"
                                                 class="form-control  @error('amount')
                                             is-invalid @enderror"
                                                 id="amount" placeholder="Masukan Jumlah" name="amount"

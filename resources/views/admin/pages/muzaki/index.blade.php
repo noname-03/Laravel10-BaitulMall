@@ -29,7 +29,7 @@
                             </div>
                             <!-- /.card-header -->
                             <div class="card-body">
-                                <table id="example1" class="table table-bordered table-striped">
+                                <table id="example3" class="table table-bordered table-striped">
                                     <thead>
                                         <tr>
                                             <th style="width: 7%">No</th>
@@ -50,7 +50,7 @@
                                                 <td>{{ $item->rt }}</td>
                                                 <td>{{ $item->rw }}</td>
                                                 <td>{{ $item->type }}</td>
-                                                <td>{{ $item->amount }}</td>
+                                                <td>@currency($item->amount)</td>
                                                 <td>{{ $item->address }}</td>
                                                 <td style="text-align: center;">
                                                     <form action="{{ route('admin.muzaki.destroy', $item->id) }}"
@@ -87,25 +87,29 @@
         <!-- /.content -->
     </div>
 @endsection
+
 @push('script')
     <!-- Page specific script -->
     <script>
         $(function() {
-            $("#example1").DataTable({
+            $("#example3").DataTable({
                 "responsive": true,
                 "lengthChange": false,
                 "autoWidth": false,
-                "buttons": ["copy", "csv", "excel", "pdf", "print", "colvis"],
-            }).buttons().container().appendTo('#example1_wrapper .col-md-6:eq(0)');
-            $('#example2').DataTable({
-                "paging": true,
-                "lengthChange": false,
-                "searching": false,
-                "ordering": true,
-                "info": true,
-                "autoWidth": false,
-                "responsive": true,
-            });
+                "buttons": [{
+                        extend: 'pdf',
+                        exportOptions: {
+                            columns: 'th:not(:last-child)'
+                        }
+                    },
+                    {
+                        extend: 'excel',
+                        exportOptions: {
+                            columns: 'th:not(:last-child)'
+                        }
+                    }
+                ],
+            }).buttons().container().appendTo('#example3_wrapper .col-md-6:eq(0)');
         });
     </script>
 @endpush

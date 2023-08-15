@@ -78,7 +78,7 @@
                         <li class="nav-item">
                             <a href="{{ route('admin.distributor.index') }}" class="nav-link @yield('distributor')">
                                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                <p>Data Penyalur</p>
+                                <p>Data Penyaluran</p>
                             </a>
                         </li>
                         {{-- expenditureMal --}}

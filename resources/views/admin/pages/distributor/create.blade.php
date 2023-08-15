@@ -1,5 +1,5 @@
 @extends('admin.layouts.app')
-@section('title', 'Tambah Data Penyalur')
+@section('title', 'Tambah Data Penyaluran')
 @section('data.baitul.mal', 'menu-open')
 @section('distributor', 'active')
 @section('content')
@@ -9,7 +9,7 @@
             <div class="container-fluid">
                 <div class="row mb-2">
                     <div class="col-sm-6">
-                        <h1>Formulir Penyalur</h1>
+                        <h1>Formulir Penyaluran</h1>
                     </div>
                 </div>
             </div><!-- /.container-fluid -->
@@ -21,7 +21,7 @@
                 <!-- SELECT2 EXAMPLE -->
                 <div class="card card-default">
                     <div class="card-header">
-                        <h3 class="card-title">Tambah Data Penyalur</h3>
+                        <h3 class="card-title">Tambah Data Penyaluran</h3>
                     </div>
                     <!-- /.card-header -->
                     <div class="card-body" style="display: block;">
@@ -45,7 +45,7 @@
                                             @enderror
                                         </div>
                                         <div class="form-group col-md-4">
-                                            <label for="date">Priode</label>
+                                            <label for="date">Periode</label>
                                             <input type="date"
                                                 class="form-control  @error('date')
                                             is-invalid @enderror"
