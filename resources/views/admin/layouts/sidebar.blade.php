@@ -41,12 +41,12 @@
 
                     <ul class="nav nav-treeview">
                         {{-- muzaki --}}
-                        {{-- <li class="nav-item">
+                        <li class="nav-item">
                             <a href="{{ route('admin.muzaki.index') }}" class="nav-link @yield('muzaki')">
                                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                                 <p>Data Muzaki</p>
                             </a>
-                        </li> --}}
+                        </li>
                         {{-- expenditure --}}
                         <li class="nav-item">
                             <a href="{{ route('admin.expenditure.index') }}" class="nav-link @yield('expenditure')">

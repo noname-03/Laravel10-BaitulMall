@@ -17,6 +17,7 @@ class DatabaseSeeder extends Seeder
             UsersSeeder::class,
             IncomeSeeder::class,
             ExpenditureSeeder::class,
+            MuzakiSeeder::class,
         ]);
     }
 }
