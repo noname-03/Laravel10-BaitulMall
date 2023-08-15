@@ -47,11 +47,11 @@
                                 <p>Data Muzaki</p>
                             </a>
                         </li>
-                        {{-- expenditure --}}
+                        {{-- mustahik --}}
                         <li class="nav-item">
-                            <a href="{{ route('admin.expenditure.index') }}" class="nav-link @yield('expenditure')">
+                            <a href="{{ route('admin.mustahik.index') }}" class="nav-link @yield('mustahik')">
                                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                <p>Data Pengeluaran</p>
+                                <p>Data Mustahik</p>
                             </a>
                         </li>
                     </ul>
