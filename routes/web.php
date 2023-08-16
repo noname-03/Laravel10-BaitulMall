@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AboutController;
 use App\Http\Controllers\DistributorController;
 use App\Http\Controllers\ExpenditureController;
 use App\Http\Controllers\ExpenditureMalController;
@@ -21,6 +22,7 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', [GuestController::class, 'index'])->name('guest.home');
+Route::get('/about', [GuestController::class, 'about'])->name('guest.about');
 
 Route::prefix('/admin')->name('admin.')->middleware('auth')->group(function () {
     Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
@@ -34,4 +36,5 @@ Route::prefix('/admin')->name('admin.')->middleware('auth')->group(function () {
     Route::resource('expenditureMal', ExpenditureMalController::class);
     Route::resource('slide', SlideController::class);
     Route::resource('news', NewsController::class);
+    Route::resource('about', AboutController::class);
 });

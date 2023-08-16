@@ -54,20 +54,29 @@
                                 <p>Data Mustahik</p>
                             </a>
                         </li>
-                        {{-- slide --}}
-                        <li class="nav-item">
-                            <a href="{{ route('admin.slide.index') }}" class="nav-link @yield('slide')">
-                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                <p>Data Gambar</p>
-                            </a>
-                        </li>
-                        {{-- news --}}
-                        <li class="nav-item">
-                            <a href="{{ route('admin.news.index') }}" class="nav-link @yield('news')">
-                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                <p>Data Berita</p>
-                            </a>
-                        </li>
+                        @if (Auth::User()->role == 'admin')
+                            {{-- slide --}}
+                            <li class="nav-item">
+                                <a href="{{ route('admin.slide.index') }}" class="nav-link @yield('slide')">
+                                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                    <p>Data Gambar</p>
+                                </a>
+                            </li>
+                            {{-- news --}}
+                            <li class="nav-item">
+                                <a href="{{ route('admin.news.index') }}" class="nav-link @yield('news')">
+                                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                    <p>Data Berita</p>
+                                </a>
+                            </li>
+                            {{-- about --}}
+                            <li class="nav-item">
+                                <a href="{{ route('admin.about.index') }}" class="nav-link @yield('about')">
+                                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                    <p>Tentang Kami</p>
+                                </a>
+                            </li>
+                        @endif
                     </ul>
                 </li>
 
@@ -105,52 +114,56 @@
                     </ul>
                 </li>
 
-                <li class="nav-item @yield('data.kas')">
-                    <a href="#" class="nav-link @yield('nav.kas')">
-                        <i class="nav-icon fas fa-user"></i>
-                        <p>
-                            Kas Masjid
-                            <i class="fas fa-angle-left right"></i>
-                        </p>
-                    </a>
+                @if (Auth::User()->role == 'admin')
+                    <li class="nav-item @yield('data.kas')">
+                        <a href="#" class="nav-link @yield('nav.kas')">
+                            <i class="nav-icon fas fa-user"></i>
+                            <p>
+                                Kas Masjid
+                                <i class="fas fa-angle-left right"></i>
+                            </p>
+                        </a>
 
-                    <ul class="nav nav-treeview">
-                        {{-- income --}}
-                        <li class="nav-item">
-                            <a href="{{ route('admin.income.index') }}" class="nav-link @yield('income')">
-                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                <p>Data Pemasukan</p>
-                            </a>
-                        </li>
-                        {{-- expenditure --}}
-                        <li class="nav-item">
-                            <a href="{{ route('admin.expenditure.index') }}" class="nav-link @yield('expenditure')">
-                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                <p>Data Pengeluaran</p>
-                            </a>
-                        </li>
-                    </ul>
-                </li>
+                        <ul class="nav nav-treeview">
+                            {{-- income --}}
+                            <li class="nav-item">
+                                <a href="{{ route('admin.income.index') }}" class="nav-link @yield('income')">
+                                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                    <p>Data Pemasukan</p>
+                                </a>
+                            </li>
+                            {{-- expenditure --}}
+                            <li class="nav-item">
+                                <a href="{{ route('admin.expenditure.index') }}" class="nav-link @yield('expenditure')">
+                                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                    <p>Data Pengeluaran</p>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                @endif
 
-                <li class="nav-item @yield('data')">
-                    <a href="#" class="nav-link @yield('nav')">
-                        <i class="nav-icon fas fa-user"></i>
-                        <p>
-                            User
-                            <i class="fas fa-angle-left right"></i>
-                        </p>
-                    </a>
+                @if (Auth::User()->role == 'admin')
+                    <li class="nav-item @yield('data')">
+                        <a href="#" class="nav-link @yield('nav')">
+                            <i class="nav-icon fas fa-user"></i>
+                            <p>
+                                User
+                                <i class="fas fa-angle-left right"></i>
+                            </p>
+                        </a>
 
-                    <ul class="nav nav-treeview">
-                        {{-- user --}}
-                        <li class="nav-item">
-                            <a href="{{ route('admin.user.index') }}" class="nav-link @yield('user')">
-                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i class="fa fa-bars nav-icon"></i>
-                                <p>Data User</p>
-                            </a>
-                        </li>
-                    </ul>
-                </li>
+                        <ul class="nav nav-treeview">
+                            {{-- user --}}
+                            <li class="nav-item">
+                                <a href="{{ route('admin.user.index') }}" class="nav-link @yield('user')">
+                                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                    <p>Data User</p>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                @endif
             </ul>
         </nav>
         <!-- /.sidebar-menu -->

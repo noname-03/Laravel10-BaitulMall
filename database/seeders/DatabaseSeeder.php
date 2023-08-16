@@ -21,6 +21,7 @@ class DatabaseSeeder extends Seeder
             ReceptionSeeder::class,
             DistributorSeeder::class,
             ExpenditureMalSeeder::class,
+            AboutSeeder::class,
         ]);
     }
 }
