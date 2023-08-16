@@ -10,6 +10,7 @@ class Slide extends Model
     use HasFactory;
 
     protected $fillable = [
-        'photo'
+        'photo',
+        'is_active',
     ];
 }

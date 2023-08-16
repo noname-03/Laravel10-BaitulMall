@@ -9,7 +9,7 @@
             <div class="container-fluid">
                 <div class="row mb-2">
                     <div class="col-sm-6">
-                        <h1>Data Slide</h1>
+                        <h1>Data Gambar</h1>
                     </div>
                 </div>
             </div><!-- /.container-fluid -->
@@ -33,7 +33,8 @@
                                     <thead>
                                         <tr>
                                             <th style="width: 7%">No</th>
-                                            <th>photo</th>
+                                            <th>Photo</th>
+                                            <th style="width: 4%">Status</th>
                                             <th style="width: 18%">Action</th>
                                         </tr>
                                     </thead>
@@ -45,11 +46,16 @@
                                                     <img src="{{ asset('file/' . $item->photo) }}" width="100"
                                                         height="100">
                                                 </td>
+                                                <td>{{ $item->is_active == 1 ? 'Aktif' : 'Tidak Aktif' }}</td>
                                                 <td align="center">
                                                     <form action="{{ route('admin.slide.destroy', $item->id) }}"
                                                         method="POST">
                                                         @method('DELETE') @csrf
                                                         <div class="btn-group" role="group" aria-label="Basic example">
+                                                            <a href="{{ route('admin.slide.edit', $item->id) }}"
+                                                                class="btn btn-sm btn-outline-secondary">
+                                                                Edit
+                                                            </a>
                                                             <button type="submit" onclick="return confirm('Are you sure?')"
                                                                 class="btn btn-sm btn-outline-danger">
                                                                 Delete
@@ -84,16 +90,7 @@
                 "responsive": true,
                 "lengthChange": false,
                 "autoWidth": false,
-                "buttons": ["copy", "csv", "excel", "pdf", "print", "colvis"],
-            }).buttons().container().appendTo('#example1_wrapper .col-md-6:eq(0)');
-            $('#example2').DataTable({
-                "paging": true,
-                "lengthChange": false,
-                "searching": false,
-                "ordering": true,
-                "info": true,
-                "autoWidth": false,
-                "responsive": true,
+                // "buttons": ["copy", "csv", "excel", "pdf", "print", "colvis"],
             });
         });
     </script>

@@ -13,6 +13,7 @@ return new class extends Migration {
         Schema::create('slides', function (Blueprint $table) {
             $table->id();
             $table->string('photo');
+            $table->boolean('is_active')->default(false);
             $table->timestamps();
         });
     }

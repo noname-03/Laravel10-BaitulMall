@@ -1,5 +1,5 @@
 @extends('admin.layouts.app')
-@section('title', 'Tambah Data slide')
+@section('title', 'Perbarui Data slide')
 @section('data.master', 'menu-open')
 @section('slide', 'active')
 @section('content')
@@ -21,38 +21,27 @@
                 <!-- SELECT2 EXAMPLE -->
                 <div class="card card-default">
                     <div class="card-header">
-                        <h3 class="card-title">Tambah Data Gambar</h3>
+                        <h3 class="card-title">Perbarui Data Gambar</h3>
                     </div>
                     <!-- /.card-header -->
                     <div class="card-body" style="display: block;">
                         <div class="row">
                             <div class="col-md-12">
-                                <form action="{{ route('admin.slide.store') }}" method="post"
+                                <form action="{{ route('admin.slide.update', $slide->id) }}" method="post"
                                     enctype="multipart/form-data">
-                                    @csrf
+                                    @csrf @method('PUT')
                                     <div class="form-row">
-                                        <div class="form-group col-md-4">
-                                            <label for="file">Photo</label>
-                                            <input type="file"
-                                                class="form-control  @error('file')
-                                            is-invalid @enderror"
-                                                id="file" placeholder="Masukan file" name="file"
-                                                value="{{ old('file') }}">
-                                            @error('file')
-                                                <div class="invalid-feedback">
-                                                    {{ $message }}
-                                                </div>
-                                            @enderror
-                                        </div>
                                         <div class="form-group col-md-4">
                                             <label>Status</label>
                                             <select class="form-control" name="is_active">
-                                                <option value="1">Aktif</option>
-                                                <option value="0">Tidak Aktif</option>
+                                                <option value="1" {{ $slide->is_active == 1 ? 'selected' : '' }}>Aktif
+                                                </option>
+                                                <option value="0" {{ $slide->is_active == 0 ? 'selected' : '' }}>Tidak
+                                                    Aktif</option>
                                             </select>
                                         </div>
                                     </div>
-                                    <button type="submit" class="btn btn-primary">Tambah Data</button>
+                                    <button type="submit" class="btn btn-primary">Perbarui Data</button>
                                 </form>
                             </div>
                             <!-- /.col -->

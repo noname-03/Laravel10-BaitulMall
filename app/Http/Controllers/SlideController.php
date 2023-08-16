@@ -54,7 +54,7 @@ class SlideController extends Controller
      */
     public function edit(Slide $slide)
     {
-        //
+        return view('admin.pages.slide.edit', compact('slide'));
     }
 
     /**
@@ -62,7 +62,8 @@ class SlideController extends Controller
      */
     public function update(Request $request, Slide $slide)
     {
-        //
+        $slide->update($request->all());
+        return redirect()->route('admin.slide.index');
     }
 
     /**

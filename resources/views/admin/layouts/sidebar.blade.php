@@ -32,7 +32,7 @@
 
                 <li class="nav-item @yield('data.master')">
                     <a href="#" class="nav-link @yield('nav.master')">
-                        <i class="nav-icon fas fa-user"></i>
+                        <i class="nav-icon fas fa-database"></i>
                         <p>
                             Data Master
                             <i class="fas fa-angle-left right"></i>
@@ -40,20 +40,22 @@
                     </a>
 
                     <ul class="nav nav-treeview">
-                        {{-- muzaki --}}
-                        <li class="nav-item">
-                            <a href="{{ route('admin.muzaki.index') }}" class="nav-link @yield('muzaki')">
-                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                <p>Data Muzaki</p>
-                            </a>
-                        </li>
-                        {{-- mustahik --}}
-                        <li class="nav-item">
-                            <a href="{{ route('admin.mustahik.index') }}" class="nav-link @yield('mustahik')">
-                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                <p>Data Mustahik</p>
-                            </a>
-                        </li>
+                        @if (Auth::User()->role == 'user')
+                            {{-- muzaki --}}
+                            <li class="nav-item">
+                                <a href="{{ route('admin.muzaki.index') }}" class="nav-link @yield('muzaki')">
+                                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                    <p>Data Muzaki</p>
+                                </a>
+                            </li>
+                            {{-- mustahik --}}
+                            <li class="nav-item">
+                                <a href="{{ route('admin.mustahik.index') }}" class="nav-link @yield('mustahik')">
+                                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                    <p>Data Mustahik</p>
+                                </a>
+                            </li>
+                        @endif
                         @if (Auth::User()->role == 'admin')
                             {{-- slide --}}
                             <li class="nav-item">
@@ -80,44 +82,47 @@
                     </ul>
                 </li>
 
-                <li class="nav-item @yield('data.baitul.mal')">
-                    <a href="#" class="nav-link @yield('nav.baitul.mal')">
-                        <i class="nav-icon fas fa-user"></i>
-                        <p>
-                            Data Baitul Mal
-                            <i class="fas fa-angle-left right"></i>
-                        </p>
-                    </a>
+                @if (Auth::user()->role == 'user')
+                    <li class="nav-item @yield('data.baitul.mal')">
+                        <a href="#" class="nav-link @yield('nav.baitul.mal')">
+                            <i class="nav-icon fas fa-handshake"></i>
+                            <p>
+                                Data Baitul Mal
+                                <i class="fas fa-angle-left right"></i>
+                            </p>
+                        </a>
 
-                    <ul class="nav nav-treeview">
-                        {{-- reception --}}
-                        <li class="navπ-item">
-                            <a href="{{ route('admin.reception.index') }}" class="nav-link @yield('reception')">
-                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                <p>Data Penerimaan</p>
-                            </a>
-                        </li>
-                        {{-- distributor --}}
-                        <li class="nav-item">
-                            <a href="{{ route('admin.distributor.index') }}" class="nav-link @yield('distributor')">
-                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                <p>Data Penyaluran</p>
-                            </a>
-                        </li>
-                        {{-- expenditureMal --}}
-                        <li class="nav-item">
-                            <a href="{{ route('admin.expenditureMal.index') }}" class="nav-link @yield('expenditureMal')">
-                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                <p>Data Pengeluran</p>
-                            </a>
-                        </li>
-                    </ul>
-                </li>
+                        <ul class="nav nav-treeview">
+                            {{-- reception --}}
+                            <li class="navπ-item">
+                                <a href="{{ route('admin.reception.index') }}" class="nav-link @yield('reception')">
+                                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                    <p>Data Penerimaan</p>
+                                </a>
+                            </li>
+                            {{-- distributor --}}
+                            <li class="nav-item">
+                                <a href="{{ route('admin.distributor.index') }}" class="nav-link @yield('distributor')">
+                                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                    <p>Data Penyaluran</p>
+                                </a>
+                            </li>
+                            {{-- expenditureMal --}}
+                            <li class="nav-item">
+                                <a href="{{ route('admin.expenditureMal.index') }}"
+                                    class="nav-link @yield('expenditureMal')">
+                                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                    <p>Data Pengeluran</p>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                @endif
 
                 @if (Auth::User()->role == 'admin')
                     <li class="nav-item @yield('data.kas')">
                         <a href="#" class="nav-link @yield('nav.kas')">
-                            <i class="nav-icon fas fa-user"></i>
+                            <i class="nav-icon fas fa-coins"></i>
                             <p>
                                 Kas Masjid
                                 <i class="fas fa-angle-left right"></i>
