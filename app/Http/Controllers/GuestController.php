@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\About;
+use App\Models\Contact;
 use Illuminate\Http\Request;
 use App\Models\Slide;
 use App\Models\News;
@@ -39,5 +40,11 @@ class GuestController extends Controller
     {
         $gallery = Slide::paginate(9);
         return view('guest.home.gallery', compact('gallery'));
+    }
+
+    public function contact()
+    {
+        $contact = Contact::first();
+        return view('guest.home.contact', compact('contact'));
     }
 }

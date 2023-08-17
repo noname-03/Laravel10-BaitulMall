@@ -91,6 +91,13 @@
                                     <p>Tentang Kami</p>
                                 </a>
                             </li>
+                            {{-- contact --}}
+                            <li class="nav-item">
+                                <a href="{{ route('admin.contact.index') }}" class="nav-link @yield('contact')">
+                                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                    <p>Kontak</p>
+                                </a>
+                            </li>
                         @endif
                     </ul>
                 </li>

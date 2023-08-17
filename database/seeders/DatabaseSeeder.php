@@ -22,6 +22,7 @@ class DatabaseSeeder extends Seeder
             DistributorSeeder::class,
             ExpenditureMalSeeder::class,
             AboutSeeder::class,
+            ContactSeeder::class,
         ]);
     }
 }

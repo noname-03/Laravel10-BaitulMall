@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AboutController;
+use App\Http\Controllers\ContactController;
 use App\Http\Controllers\DistributorController;
 use App\Http\Controllers\ExpenditureController;
 use App\Http\Controllers\ExpenditureMalController;
@@ -27,6 +28,7 @@ Route::get('/about', [GuestController::class, 'about'])->name('guest.about');
 Route::get('/news', [GuestController::class, 'news'])->name('guest.news');
 Route::get('/news/{id}', [GuestController::class, 'showNews'])->name('guest.news.show');
 Route::get('/gallery', [GuestController::class, 'gallery'])->name('guest.gallery');
+Route::get('/contact', [GuestController::class, 'contact'])->name('guest.contact');
 
 Route::prefix('/admin')->name('admin.')->middleware('auth')->group(function () {
     Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
@@ -43,4 +45,5 @@ Route::prefix('/admin')->name('admin.')->middleware('auth')->group(function () {
     Route::resource('about', AboutController::class);
     Route::resource('guidelines', GuidelinesController::class);
     Route::resource('organization', OrganizationController::class);
+    Route::resource('contact', ContactController::class);
 });
