@@ -5,7 +5,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-12">
-                    <h3 class="category-title">Aspirasi</h3>
+                    <h3 class="category-title">Berita</h3>
 
                     @foreach ($news as $item)
                         <div class="d-md-flex post-entry-2 small-img border-bottom">

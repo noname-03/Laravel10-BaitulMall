@@ -58,55 +58,33 @@
             <div class="container">
 
                 <div class="row g-5">
-                    <div class="col-lg-4">
+                    <div class="col-lg-6">
                         <h3 class="footer-heading">Tentang Kami</h3>
-                        {{-- <p>{{ Str::limit($about[0]->description, 100, '...') }}</p> --}}
+                        <p>{{ Str::limit($about->description, 200, '...') }}</p>
                         <p><a href="{{ route('guest.home') }}" class="footer-link-more">Learn More</a></p>
                     </div>
-                    <div class="col-6 col-lg-2">
+                    <div class="col-6 col-lg-6">
                         <h3 class="footer-heading">Navigasi</h3>
                         <ul class="footer-links list-unstyled">
                             <li><a href="{{ route('guest.home') }}"><i class="bi bi-chevron-right"></i> Beranda</a>
                             </li>
-                            <li><a href="{{ route('guest.home') }}"><i class="bi bi-chevron-right"></i>
+                            <li><a href="{{ route('guest.news') }}"><i class="bi bi-chevron-right"></i>
                                     Berita</a></li>
-                            <li><a href="{{ route('guest.home') }}"><i class="bi bi-chevron-right"></i> Galeri</a></li>
-                            <li><a href="{{ route('guest.home') }}"><i class="bi bi-chevron-right"></i> Hubungi
+                            <li><a href="{{ route('guest.gallery') }}"><i class="bi bi-chevron-right"></i> Galeri</a>
+                            </li>
+                            <li><a href="{{ route('guest.contact') }}"><i class="bi bi-chevron-right"></i> Hubungi
                                     Kami</a></li>
-                            <li><a href="{{ route('guest.home') }}"><i class="bi bi-chevron-right"></i> Tentang
+                            <li><a href="{{ route('guest.about') }}"><i class="bi bi-chevron-right"></i> Tentang
                                     Kami</a>
                             </li>
                         </ul>
                     </div>
 
-
-                    <div class="col-lg-4">
-                        <h3 class="footer-heading">Aspirasi Terakhir</h3>
-
-                        <ul class="footer-links footer-blog-entry list-unstyled">
-                            {{-- @foreach ($aspirasi as $item)
-                                <li>
-                                    <a href="{{ route('guest.showAspirasi', $item->id) }}"
-                                        class="d-flex align-items-center">
-                                        <div>
-                                            <div class="post-meta d-block"><span
-                                                    class="date">{{ $item->TitleSubCategory->name }}</span> <span
-                                                    class="mx-1">&bullet;</span> <span>{{ $item->created_at }}</span>
-                                            </div>
-                                            <span>{{ $item->name }}</span>
-                                        </div>
-                                    </a>
-                                </li>
-                            @endforeach --}}
-
-                        </ul>
-
-                    </div>
                 </div>
             </div>
         </div>
 
-        <div class="footer-legal">
+        <div class="footer-legal g-5">
             <div class="container">
 
                 <div class="row justify-content-between">
@@ -116,18 +94,7 @@
                         </div>
 
                         <div class="credits">
-                            Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>
-                        </div>
-
-                    </div>
-
-                    <div class="col-md-6">
-                        <div class="social-links mb-3 mb-lg-0 text-center text-md-end">
-                            <a href="#" class="twitter"><i class="bi bi-twitter"></i></a>
-                            <a href="#" class="facebook"><i class="bi bi-facebook"></i></a>
-                            <a href="#" class="instagram"><i class="bi bi-instagram"></i></a>
-                            <a href="#" class="google-plus"><i class="bi bi-skype"></i></a>
-                            <a href="#" class="linkedin"><i class="bi bi-linkedin"></i></a>
+                            Designed by Rahman
                         </div>
 
                     </div>
