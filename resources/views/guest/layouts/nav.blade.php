@@ -10,8 +10,8 @@
         <nav id="navbar" class="navbar">
             <ul>
                 <li><a href="{{ route('guest.home') }}">Beranda</a></li>
-                <li><a href="{{ route('guest.home') }}">Berita</a></li>
-                <li><a href="{{ route('guest.home') }}">Galeri</a></li>
+                <li><a href="{{ route('guest.news') }}">Berita</a></li>
+                <li><a href="{{ route('guest.gallery') }}">Galeri</a></li>
                 <li><a href="{{ route('guest.home') }}">Hubungi Kami</a></li>
                 <li><a href="{{ route('guest.about') }}">Tentang Kami</a></li>
                 <li><a href="{{ route('login') }}">Login</a></li>

@@ -24,6 +24,9 @@ Auth::routes();
 
 Route::get('/home', [GuestController::class, 'index'])->name('guest.home');
 Route::get('/about', [GuestController::class, 'about'])->name('guest.about');
+Route::get('/news', [GuestController::class, 'news'])->name('guest.news');
+Route::get('/news/{id}', [GuestController::class, 'showNews'])->name('guest.news.show');
+Route::get('/gallery', [GuestController::class, 'gallery'])->name('guest.gallery');
 
 Route::prefix('/admin')->name('admin.')->middleware('auth')->group(function () {
     Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
