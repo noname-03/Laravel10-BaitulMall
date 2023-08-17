@@ -101,16 +101,15 @@
                                 </a>
                             </li>
                             {{-- distributor --}}
-                            <li class="nav-item">
+                            {{-- <li class="nav-item">
                                 <a href="{{ route('admin.distributor.index') }}" class="nav-link @yield('distributor')">
                                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                                     <p>Data Penyaluran</p>
                                 </a>
-                            </li>
+                            </li> --}}
                             {{-- expenditureMal --}}
                             <li class="nav-item">
-                                <a href="{{ route('admin.expenditureMal.index') }}"
-                                    class="nav-link @yield('expenditureMal')">
+                                <a href="{{ route('admin.expenditureMal.index') }}" class="nav-link @yield('expenditureMal')">
                                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                                     <p>Data Pengeluran</p>
                                 </a>

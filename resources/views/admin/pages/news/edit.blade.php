@@ -50,7 +50,7 @@
                                                 class="form-control  @error('file')
                                             is-invalid @enderror"
                                                 id="file" placeholder="Masukan file" name="file"
-                                                value="{{ old('file') }}">
+                                                value="{{ old('file') }}" accept="image/*">
                                             @error('file')
                                                 <div class="invalid-feedback">
                                                     {{ $message }}
