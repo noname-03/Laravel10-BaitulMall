@@ -36,6 +36,7 @@ class MuzakiController extends Controller
             'rt' => 'required|numeric',
             'rw' => 'required|numeric',
             'amount' => 'required|numeric',
+            'date' => 'required|date',
         ]);
 
         Muzaki::create($request->all());
@@ -70,6 +71,7 @@ class MuzakiController extends Controller
             'rt' => 'required|numeric',
             'rw' => 'required|numeric',
             'amount' => 'required|numeric',
+            'date' => 'required|date',
         ]);
 
         $muzaki->update($request->all());

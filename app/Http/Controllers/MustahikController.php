@@ -37,6 +37,8 @@ class MustahikController extends Controller
             'rt' => 'required|numeric',
             'rw' => 'required|numeric',
             'file' => 'required',
+            'amount' => 'required|numeric',
+            'date' => 'required|date',
         ]);
         //upload photo
         $imageName = time() . '.' . $request->file->extension();
@@ -73,6 +75,9 @@ class MustahikController extends Controller
             'type' => 'required',
             'rt' => 'required|numeric',
             'rw' => 'required|numeric',
+            'amount' => 'required|numeric',
+            'date' => 'required|date',
+
         ]);
 
         if ($request->hasFile('file')) {

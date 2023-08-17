@@ -29,7 +29,7 @@
                             </div>
                             <!-- /.card-header -->
                             <div class="card-body">
-                                <table id="example1" class="table table-bordered table-striped">
+                                <table id="example3" class="table table-bordered table-striped">
                                     <thead>
                                         <tr>
                                             <th style="width: 7%">No</th>
@@ -37,8 +37,10 @@
                                             <th>Rt</th>
                                             <th>Rw</th>
                                             <th>Jenis</th>
-                                            <th>photo</th>
+                                            <th>Tanggal</th>
+                                            <th>Nominal</th>
                                             <th style="width: 30%">Alamat</th>
+                                            <th>photo</th>
                                             <th style="width: 18%">Action</th>
                                         </tr>
                                     </thead>
@@ -50,11 +52,13 @@
                                                 <td>{{ $item->rt }}</td>
                                                 <td>{{ $item->rw }}</td>
                                                 <td>{{ $item->type }}</td>
+                                                <td>{{ $item->date }}</td>
+                                                <td>@currency($item->amount)</td>
+                                                <td>{{ $item->address }}</td>
                                                 <td>
                                                     <img src="{{ asset('file/' . $item->photo) }}" width="100"
                                                         height="100">
                                                 </td>
-                                                <td>{{ $item->address }}</td>
                                                 <td style="text-align: center;">
                                                     <form action="{{ route('admin.mustahik.destroy', $item->id) }}"
                                                         method="POST">
@@ -94,21 +98,24 @@
     <!-- Page specific script -->
     <script>
         $(function() {
-            $("#example1").DataTable({
+            $("#example3").DataTable({
                 "responsive": true,
                 "lengthChange": false,
                 "autoWidth": false,
-                "buttons": ["copy", "csv", "excel", "pdf", "print", "colvis"],
-            }).buttons().container().appendTo('#example1_wrapper .col-md-6:eq(0)');
-            $('#example2').DataTable({
-                "paging": true,
-                "lengthChange": false,
-                "searching": false,
-                "ordering": true,
-                "info": true,
-                "autoWidth": false,
-                "responsive": true,
-            });
+                "buttons": [{
+                        extend: 'pdf',
+                        exportOptions: {
+                            columns: 'th:not(:nth-last-child(-n+2))' // Kecualikan dua kolom terakhir
+                        }
+                    },
+                    {
+                        extend: 'excel',
+                        exportOptions: {
+                            columns: 'th:not(:nth-last-child(-n+2))' // Kecualikan dua kolom terakhir
+                        }
+                    }
+                ],
+            }).buttons().container().appendTo('#example3_wrapper .col-md-6:eq(0)');
         });
     </script>
 @endpush

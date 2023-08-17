@@ -18,5 +18,6 @@ class Muzaki extends Model
         'rt',
         'rw',
         'amount',
+        'date',
     ];
 }

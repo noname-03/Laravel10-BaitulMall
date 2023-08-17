@@ -20,6 +20,7 @@ class MuzakiSeeder extends Seeder
             'rt' => '001',
             'rw' => '001',
             'amount' => '100000',
+            'date' => '2021-08-15',
         ]);
     }
 }

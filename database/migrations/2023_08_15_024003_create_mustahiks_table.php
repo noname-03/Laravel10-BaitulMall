@@ -13,11 +13,13 @@ return new class extends Migration {
         Schema::create('mustahik', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->integer('rt');
-            $table->integer('rw');
+            $table->string('rt');
+            $table->string('rw');
             $table->text('address');
             $table->string('type');
             $table->string('photo');
+            $table->double('amount');
+            $table->date('date');
             $table->timestamps();
         });
     }

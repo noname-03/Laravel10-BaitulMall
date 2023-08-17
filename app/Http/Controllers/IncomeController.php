@@ -10,13 +10,19 @@ class IncomeController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(Request $request)
     {
-        $incomes = Income::all();
+        $incomes = Income::query();
+
+        if ($request->has('month')) {
+            $month = $request->month;
+            $incomes->whereMonth('date', $month);
+        }
+
+        $incomes = $incomes->get();
 
         return view('admin.pages.income.index', compact('incomes'));
     }
-
     /**
      * Show the form for creating a new resource.
      */

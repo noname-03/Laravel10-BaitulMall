@@ -14,9 +14,10 @@ class ReceptionSeeder extends Seeder
     public function run(): void
     {
         Reception::create([
-            'rw' => 01,
+            'rw' => '01',
             'priode' => '2021-01-01',
             'amount' => '1200',
+            'number_people' => '12'
         ]);
     }
 }

@@ -25,7 +25,21 @@
                                 <a href="{{ route('admin.expenditure.create') }}" type="button"
                                     class="btn btn-primary btn-sm">Tambah
                                     Data</a>
-
+                                <div class="btn-group">
+                                    <div class="dropdown">
+                                        <button class="btn btn-info btn-sm dropdown-toggle" type="button"
+                                            id="monthDropdown" data-toggle="dropdown">
+                                            Filter
+                                        </button>
+                                        <div class="dropdown-menu" aria-labelledby="monthDropdown">
+                                            <a class="dropdown-item" href="{{ route('admin.expenditure.index') }}">Semua</a>
+                                            @for ($month = 1; $month <= 12; $month++)
+                                                <a class="dropdown-item"
+                                                    href="{{ route('admin.expenditure.index', ['month' => $month]) }}">{{ date('F', mktime(0, 0, 0, $month, 1)) }}</a>
+                                            @endfor
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                             <!-- /.card-header -->
                             <div class="card-body">

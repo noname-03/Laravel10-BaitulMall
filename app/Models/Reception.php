@@ -13,5 +13,6 @@ class Reception extends Model
         'rw',
         'priode',
         'amount',
+        'number_people',
     ];
 }

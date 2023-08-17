@@ -57,19 +57,6 @@
                                                 </div>
                                             @enderror
                                         </div>
-                                        <div class="form-group col-md-4">
-                                            <label for="amount">Jumlah</label>
-                                            <input type="number"
-                                                class="form-control  @error('amount')
-                                            is-invalid @enderror"
-                                                id="amount" placeholder="Masukan Jumlah" name="amount"
-                                                value="{{ old('amount') }}">
-                                            @error('amount')
-                                                <div class="invalid-feedback">
-                                                    {{ $message }}
-                                                </div>
-                                            @enderror
-                                        </div>
                                     </div>
                                     <button type="submit" class="btn btn-primary">Tambah Data</button>
                                 </form>

@@ -10,9 +10,16 @@ class ExpenditureController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(Request $request)
     {
-        $expenditures = Expenditure::all();
+        $expenditures = Expenditure::query();
+
+        if ($request->has('month')) {
+            $month = $request->month;
+            $expenditures->whereMonth('date', $month);
+        }
+
+        $expenditures = $expenditures->get();
 
         return view('admin.pages.expenditure.index', compact('expenditures'));
     }

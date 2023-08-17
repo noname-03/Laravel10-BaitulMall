@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Mustahik;
 use App\Models\Reception;
 use Illuminate\Http\Request;
 
@@ -10,9 +11,15 @@ class ReceptionController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(Request $request)
     {
-        $receptions = Reception::all();
+        $receptions = Reception::query();
+        // jika ada request year maka lakukan sorting
+        if ($request->has('year')) {
+            $receptions->whereYear('priode', $request->year);
+        }
+
+        $receptions = $receptions->get();
 
         return view('admin.pages.reception.index', compact('receptions'));
     }
@@ -33,8 +40,22 @@ class ReceptionController extends Controller
         $request->validate([
             'rw' => 'required|numeric',
             'priode' => 'required|date',
-            'amount' => 'required|numeric',
         ]);
+
+        //melakukakan perhitungan dari table mustahik berdasarkan RW lalu menghitung jumlah orang dan nominal uangnya
+        $amount = 0;
+        $number_people = 0;
+        //mengambil data mustahik rw berdasarkan priode dari request dan date dari table mustahik dengan satuan tahun
+        $mustahiks = Mustahik::whereYear('date', $request->priode)->where('rw', $request->rw)->get();
+
+        // $mustahiks = Mustahik::where('rw', $request->rw)->get();
+        foreach ($mustahiks as $mustahik) {
+            $amount += $mustahik->amount;
+            $number_people += 1;
+        }
+
+        $request['amount'] = $amount;
+        $request['number_people'] = $number_people;
 
         Reception::create($request->all());
 
@@ -65,9 +86,22 @@ class ReceptionController extends Controller
         $request->validate([
             'rw' => 'required|numeric',
             'priode' => 'required|date',
-            'amount' => 'required|numeric',
         ]);
 
+        //melakukakan perhitungan dari table mustahik berdasarkan RW lalu menghitung jumlah orang dan nominal uangnya
+        $amount = 0;
+        $number_people = 0;
+        //mengambil data mustahik rw berdasarkan priode dari request dan date dari table mustahik dengan satuan tahun
+        $mustahiks = Mustahik::whereYear('date', $request->priode)->where('rw', $request->rw)->get();
+
+        // $mustahiks = Mustahik::where('rw', $request->rw)->get();
+        foreach ($mustahiks as $mustahik) {
+            $amount += $mustahik->amount;
+            $number_people += 1;
+        }
+
+        $request['amount'] = $amount;
+        $request['number_people'] = $number_people;
         $reception->update($request->all());
 
         return redirect()->route('admin.reception.index');
@@ -79,6 +113,35 @@ class ReceptionController extends Controller
     public function destroy(Reception $reception)
     {
         $reception->delete();
+
+        return redirect()->route('admin.reception.index');
+    }
+
+    public function refresh()
+    {
+        $mustahiks = Mustahik::all();
+        // dd($mustahiks);
+        //menghitung ulang seluruh tabel reception berdasarkan rw dan priode dari tabel mustahik
+        foreach ($mustahiks as $mustahik) {
+            $amount = 0;
+            $number_people = 0;
+            //mengambil data mustahik rw berdasarkan priode dari request dan date dari table mustahik dengan satuan tahun
+            $mustahiks = Mustahik::whereYear('date', $mustahik->date)->where('rw', $mustahik->rw)->get();
+
+            // $mustahiks = Mustahik::where('rw', $request->rw)->get();
+            foreach ($mustahiks as $mustahik) {
+                $amount += $mustahik->amount;
+                $number_people += 1;
+            }
+
+            $reception = Reception::where('rw', $mustahik->rw)->whereYear('priode', $mustahik->date)->first();
+            if ($reception) {
+                $reception->update([
+                    'amount' => $amount,
+                    'number_people' => $number_people,
+                ]);
+            }
+        }
 
         return redirect()->route('admin.reception.index');
     }

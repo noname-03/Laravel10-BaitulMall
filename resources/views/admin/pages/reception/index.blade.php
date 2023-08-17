@@ -25,17 +25,36 @@
                                 <a href="{{ route('admin.reception.create') }}" type="button"
                                     class="btn btn-primary btn-sm">Tambah
                                     Data</a>
+                                <a href="{{ route('admin.reception.refresh') }}" type="button"
+                                    class="btn btn-success btn-sm">Refresh</a>
+                                <div class="btn-group">
+                                    <div class="dropdown">
+                                        <button class="btn btn-info btn-sm dropdown-toggle" type="button"
+                                            id="filterDropdown" data-toggle="dropdown">
+                                            Filter
+                                        </button>
+                                        <div class="dropdown-menu" aria-labelledby="filterDropdown">
+                                            <a class="dropdown-item" href="{{ route('admin.reception.index') }}">Semua</a>
+                                            <div class="dropdown-divider"></div>
+                                            @for ($year = date('Y'); $year >= 2020; $year--)
+                                                <a class="dropdown-item"
+                                                    href="{{ route('admin.reception.index', ['year' => $year]) }}">{{ $year }}</a>
+                                            @endfor
+                                        </div>
+                                    </div>
+                                </div>
 
                             </div>
                             <!-- /.card-header -->
                             <div class="card-body">
-                                <table id="example1" class="table table-bordered table-striped">
+                                <table id="example3" class="table table-bordered table-striped">
                                     <thead>
                                         <tr>
                                             <th style="width: 7%">No</th>
                                             <th>Rw</th>
                                             <th>Periode</th>
-                                            <th>Jumlah</th>
+                                            <th>Total Orang</th>
+                                            <th>Total Nominal</th>
                                             <th style="width: 18%">Action</th>
                                         </tr>
                                     </thead>
@@ -45,6 +64,7 @@
                                                 <td>{{ $loop->iteration }}</td>
                                                 <td>{{ $item->rw }}</td>
                                                 <td>{{ $item->priode }}</td>
+                                                <td>{{ $item->number_people }} Orang</td>
                                                 <td>@currency($item->amount)</td>
                                                 <td style="text-align: center;">
                                                     <form action="{{ route('admin.reception.destroy', $item->id) }}"
@@ -85,21 +105,24 @@
     <!-- Page specific script -->
     <script>
         $(function() {
-            $("#example1").DataTable({
+            $("#example3").DataTable({
                 "responsive": true,
                 "lengthChange": false,
                 "autoWidth": false,
-                "buttons": ["copy", "csv", "excel", "pdf", "print", "colvis"],
-            }).buttons().container().appendTo('#example1_wrapper .col-md-6:eq(0)');
-            $('#example2').DataTable({
-                "paging": true,
-                "lengthChange": false,
-                "searching": false,
-                "ordering": true,
-                "info": true,
-                "autoWidth": false,
-                "responsive": true,
-            });
+                "buttons": [{
+                        extend: 'pdf',
+                        exportOptions: {
+                            columns: 'th:not(:last-child)'
+                        }
+                    },
+                    {
+                        extend: 'excel',
+                        exportOptions: {
+                            columns: 'th:not(:last-child)'
+                        }
+                    }
+                ],
+            }).buttons().container().appendTo('#example3_wrapper .col-md-6:eq(0)');
         });
     </script>
 @endpush

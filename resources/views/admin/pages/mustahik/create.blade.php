@@ -84,6 +84,32 @@
                                             </select>
                                         </div>
                                         <div class="form-group col-md-4">
+                                            <label for="amount">Nominal</label>
+                                            <input type="number"
+                                                class="form-control  @error('amount')
+                                            is-invalid @enderror"
+                                                id="amount" placeholder="Masukan Nominal" name="amount"
+                                                value="{{ old('amount') }}" accept="image/*">
+                                            @error('amount')
+                                                <div class="invalid-feedback">
+                                                    {{ $message }}
+                                                </div>
+                                            @enderror
+                                        </div>
+                                        <div class="form-group col-md-4">
+                                            <label for="date">Tanggal</label>
+                                            <input type="date"
+                                                class="form-control  @error('date')
+                                            is-invalid @enderror"
+                                                id="date" placeholder="Masukan date" name="date"
+                                                value="{{ old('date') }}" accept="image/*">
+                                            @error('date')
+                                                <div class="invalid-feedback">
+                                                    {{ $message }}
+                                                </div>
+                                            @enderror
+                                        </div>
+                                        <div class="form-group col-md-4">
                                             <label for="file">Photo</label>
                                             <input type="file"
                                                 class="form-control  @error('file')
@@ -96,7 +122,7 @@
                                                 </div>
                                             @enderror
                                         </div>
-                                        <div class="form-group col-md-4">
+                                        <div class="form-group col-md-8">
                                             <label for="address">Alamat</label>
                                             <textarea class="form-control  @error('address') is-invalid @enderror" name="address" id="address" cols="20"
                                                 rows="4" placeholder="Masukan Alamat">{{ old('address') }}</textarea>

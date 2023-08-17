@@ -94,6 +94,19 @@
                                             @enderror
                                         </div>
                                         <div class="form-group col-md-4">
+                                            <label for="date">Tanggal</label>
+                                            <input type="date"
+                                                class="form-control  @error('date')
+                                            is-invalid @enderror"
+                                                id="date" placeholder="Masukan Jumlah" name="date"
+                                                value="{{ old('date', $muzaki->date) }}">
+                                            @error('date')
+                                                <div class="invalid-feedback">
+                                                    {{ $message }}
+                                                </div>
+                                            @enderror
+                                        </div>
+                                        <div class="form-group col-md-12">
                                             <label for="address">Alamat</label>
                                             <textarea class="form-control  @error('address') is-invalid @enderror" name="address" id="address" cols="20"
                                                 rows="4" placeholder="Masukan Alamat">{{ old('address', $muzaki->address) }}</textarea>

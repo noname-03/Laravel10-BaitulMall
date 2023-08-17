@@ -17,6 +17,8 @@ class Mustahik extends Model
         'rt',
         'rw',
         'type',
-        'photo'
+        'photo',
+        'amount',
+        'date',
     ];
 }

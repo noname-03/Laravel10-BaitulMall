@@ -10,9 +10,15 @@ class ExpenditureMalController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(Request $request)
     {
-        $expenditureMals = ExpenditureMal::all();
+        $expenditureMals = ExpenditureMal::query();
+        // jika ada request year maka lakukan sorting
+        if ($request->has('year')) {
+            $expenditureMals->whereYear('priode', $request->year);
+        }
+
+        $expenditureMals = $expenditureMals->get();
 
         return view('admin.pages.expenditureMal.index', compact('expenditureMals'));
     }

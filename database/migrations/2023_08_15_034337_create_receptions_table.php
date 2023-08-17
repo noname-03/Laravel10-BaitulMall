@@ -12,8 +12,9 @@ return new class extends Migration {
     {
         Schema::create('receptions', function (Blueprint $table) {
             $table->id();
-            $table->integer('rw');
+            $table->string('rw');
             $table->date('priode');
+            $table->double('number_people');
             $table->double('amount');
             $table->timestamps();
         });
