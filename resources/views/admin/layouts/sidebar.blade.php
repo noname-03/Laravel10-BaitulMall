@@ -63,6 +63,12 @@
                                 <p>Data Pedoman</p>
                             </a>
                         </li>
+                        <li class="nav-item">
+                            <a href="{{ route('admin.organization.index') }}" class="nav-link @yield('organization')">
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                <p>Data Organisasi</p>
+                            </a>
+                        </li>
                         @if (Auth::User()->role == 'admin')
                             {{-- slide --}}
                             <li class="nav-item">

@@ -9,6 +9,7 @@ use App\Http\Controllers\IncomeController;
 use App\Http\Controllers\MustahikController;
 use App\Http\Controllers\MuzakiController;
 use App\Http\Controllers\NewsController;
+use App\Http\Controllers\OrganizationController;
 use App\Http\Controllers\ReceptionController;
 use App\Http\Controllers\SlideController;
 use Illuminate\Support\Facades\Route;
@@ -38,4 +39,5 @@ Route::prefix('/admin')->name('admin.')->middleware('auth')->group(function () {
     Route::resource('news', NewsController::class);
     Route::resource('about', AboutController::class);
     Route::resource('guidelines', GuidelinesController::class);
+    Route::resource('organization', OrganizationController::class);
 });
