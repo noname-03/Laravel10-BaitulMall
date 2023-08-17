@@ -1,7 +1,7 @@
 @extends('admin.layouts.app')
-@section('title', 'Perbarui Data Gambar')
+@section('title', 'Tambah Data Pedoman')
 @section('data.master', 'menu-open')
-@section('slide', 'active')
+@section('guidelines', 'active')
 @section('content')
     <div class="content-wrapper" style="min-height: 1345.31px;">
         <!-- Content Header (Page header) -->
@@ -9,7 +9,7 @@
             <div class="container-fluid">
                 <div class="row mb-2">
                     <div class="col-sm-6">
-                        <h1>Formulir Gambar</h1>
+                        <h1>Formulir Pedoman</h1>
                     </div>
                 </div>
             </div><!-- /.container-fluid -->
@@ -21,27 +21,31 @@
                 <!-- SELECT2 EXAMPLE -->
                 <div class="card card-default">
                     <div class="card-header">
-                        <h3 class="card-title">Perbarui Data Gambar</h3>
+                        <h3 class="card-title">Tambah Data Gambar</h3>
                     </div>
                     <!-- /.card-header -->
                     <div class="card-body" style="display: block;">
                         <div class="row">
                             <div class="col-md-12">
-                                <form action="{{ route('admin.slide.update', $slide->id) }}" method="post"
+                                <form action="{{ route('admin.guidelines.store') }}" method="post"
                                     enctype="multipart/form-data">
-                                    @csrf @method('PUT')
+                                    @csrf
                                     <div class="form-row">
                                         <div class="form-group col-md-4">
-                                            <label>Status</label>
-                                            <select class="form-control" name="is_active">
-                                                <option value="1" {{ $slide->is_active == 1 ? 'selected' : '' }}>Aktif
-                                                </option>
-                                                <option value="0" {{ $slide->is_active == 0 ? 'selected' : '' }}>Tidak
-                                                    Aktif</option>
-                                            </select>
+                                            <label for="file">PDF</label>
+                                            <input type="file"
+                                                class="form-control  @error('file')
+                                            is-invalid @enderror"
+                                                id="file" placeholder="Masukan file" name="file"
+                                                value="{{ old('file') }}" accept="application/pdf">
+                                            @error('file')
+                                                <div class="invalid-feedback">
+                                                    {{ $message }}
+                                                </div>
+                                            @enderror
                                         </div>
                                     </div>
-                                    <button type="submit" class="btn btn-primary">Perbarui Data</button>
+                                    <button type="submit" class="btn btn-primary">Tambah Data</button>
                                 </form>
                             </div>
                             <!-- /.col -->

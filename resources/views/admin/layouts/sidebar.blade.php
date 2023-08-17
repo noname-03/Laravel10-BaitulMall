@@ -56,6 +56,13 @@
                                 </a>
                             </li>
                         @endif
+                        {{-- guidelines --}}
+                        <li class="nav-item">
+                            <a href="{{ route('admin.guidelines.index') }}" class="nav-link @yield('guidelines')">
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                <p>Data Pedoman</p>
+                            </a>
+                        </li>
                         @if (Auth::User()->role == 'admin')
                             {{-- slide --}}
                             <li class="nav-item">
@@ -101,15 +108,12 @@
                                 </a>
                             </li>
                             {{-- distributor --}}
-                            {{-- <li class="nav-item">
-                                <a href="{{ route('admin.distributor.index') }}" class="nav-link @yield('distributor')">
-                                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                    <p>Data Penyaluran</p>
-                                </a>
-                            </li> --}}
+                            {{-- <li class="nav
+                             --}}
                             {{-- expenditureMal --}}
                             <li class="nav-item">
-                                <a href="{{ route('admin.expenditureMal.index') }}" class="nav-link @yield('expenditureMal')">
+                                <a href="{{ route('admin.expenditureMal.index') }}"
+                                    class="nav-link @yield('expenditureMal')">
                                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                                     <p>Data Pengeluran</p>
                                 </a>

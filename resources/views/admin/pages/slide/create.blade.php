@@ -1,5 +1,5 @@
 @extends('admin.layouts.app')
-@section('title', 'Tambah Data slide')
+@section('title', 'Tambah Data Gambar')
 @section('data.master', 'menu-open')
 @section('slide', 'active')
 @section('content')
@@ -37,7 +37,7 @@
                                                 class="form-control  @error('file')
                                             is-invalid @enderror"
                                                 id="file" placeholder="Masukan file" name="file"
-                                                value="{{ old('file') }}">
+                                                value="{{ old('file') }}" accept="image/*">
                                             @error('file')
                                                 <div class="invalid-feedback">
                                                     {{ $message }}
