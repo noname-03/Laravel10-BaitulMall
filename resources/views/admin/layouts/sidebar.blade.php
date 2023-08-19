@@ -3,7 +3,7 @@
     <a href="/home" class="brand-link">
         <img src="{{ asset('admin/dist/images/LOGO_BAITUL_MALL.png') }}" alt="AdminLTE Logo"
             class="brand-image img-circle elevation-2" style="opacity: .8">
-        <span class="brand-text">Baitul Mall Klangenan</span>
+        <span class="brand-text">Baitul MallKlangenan</span>
     </a>
 
     <!-- Sidebar -->

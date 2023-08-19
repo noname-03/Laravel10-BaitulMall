@@ -5,7 +5,7 @@
             <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
         </li>
         <li class="nav-item d-none d-sm-inline-block mt-2">
-            <H5>BAITUL MALL KLANGENAN </H5>
+            <H5>BAITUL MAL KLANGENAN </H5>
         </li>
     </ul>
 
