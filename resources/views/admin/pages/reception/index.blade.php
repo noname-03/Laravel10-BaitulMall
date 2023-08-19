@@ -22,9 +22,9 @@
                     <div class="col-12">
                         <div class="card">
                             <div class="card-header">
-                                <a href="{{ route('admin.reception.create') }}" type="button"
+                                {{-- <a href="{{ route('admin.reception.create') }}" type="button"
                                     class="btn btn-primary btn-sm">Tambah
-                                    Data</a>
+                                    Data</a> --}}
                                 <a href="{{ route('admin.reception.refresh') }}" type="button"
                                     class="btn btn-success btn-sm">Refresh</a>
                                 <div class="btn-group">
@@ -71,10 +71,10 @@
                                                         method="POST">
                                                         @method('DELETE') @csrf
                                                         <div class="btn-group" role="group" aria-label="Basic example">
-                                                            <a href="{{ route('admin.reception.edit', $item->id) }}"
+                                                            {{-- <a href="{{ route('admin.reception.edit', $item->id) }}"
                                                                 class="btn btn-sm btn-outline-secondary">
                                                                 Edit
-                                                            </a>
+                                                            </a> --}}
                                                             <button type="submit" onclick="return confirm('Are you sure?')"
                                                                 class="btn btn-sm btn-outline-danger">
                                                                 Delete

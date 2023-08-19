@@ -64,8 +64,13 @@
                             <div class="icon">
                                 <i class="nav-icon fas fa-user"></i>
                             </div>
-                            <a href="{{ route('admin.user.index') }}" class="small-box-footer">More info <i
-                                    class="fas fa-arrow-circle-right"></i></a>
+                            @if (Auth::user()->role == 'admin')
+                                <a href="{{ route('admin.user.index') }}" class="small-box-footer">More info <i
+                                        class="fas fa-arrow-circle-right"></i></a>
+                            @else
+                                <a href="{{ route('admin.muzaki.index') }}" class="small-box-footer">More info <i
+                                        class="fas fa-arrow-circle-right"></i></a>
+                            @endif
                         </div>
                     </div>
                     <!-- ./col -->

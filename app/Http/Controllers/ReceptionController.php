@@ -120,7 +120,6 @@ class ReceptionController extends Controller
     public function refresh()
     {
         $mustahiks = Mustahik::all();
-        // dd($mustahiks);
         //menghitung ulang seluruh tabel reception berdasarkan rw dan priode dari tabel mustahik
         foreach ($mustahiks as $mustahik) {
             $amount = 0;
@@ -132,6 +131,15 @@ class ReceptionController extends Controller
             foreach ($mustahiks as $mustahik) {
                 $amount += $mustahik->amount;
                 $number_people += 1;
+            }
+            //cek jika ada data baru dari mustahik maka create data jika sudah ada maka update data
+            if (!Reception::where('rw', $mustahik->rw)->whereYear('priode', $mustahik->date)->first()) {
+                Reception::create([
+                    'rw' => $mustahik->rw,
+                    'priode' => $mustahik->date,
+                    'amount' => $amount,
+                    'number_people' => $number_people,
+                ]);
             }
 
             $reception = Reception::where('rw', $mustahik->rw)->whereYear('priode', $mustahik->date)->first();
