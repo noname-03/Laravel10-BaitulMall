@@ -102,38 +102,37 @@
                     </ul>
                 </li>
 
-                @if (Auth::user()->role == 'user')
-                    <li class="nav-item @yield('data.baitul.mal')">
-                        <a href="#" class="nav-link @yield('nav.baitul.mal')">
-                            <i class="nav-icon fas fa-handshake"></i>
-                            <p>
-                                Data Baitul Mal
-                                <i class="fas fa-angle-left right"></i>
-                            </p>
-                        </a>
+                {{-- @if (Auth::user()->role == 'user') --}}
+                <li class="nav-item @yield('data.baitul.mal')">
+                    <a href="#" class="nav-link @yield('nav.baitul.mal')">
+                        <i class="nav-icon fas fa-handshake"></i>
+                        <p>
+                            Data Baitul Mal
+                            <i class="fas fa-angle-left right"></i>
+                        </p>
+                    </a>
 
-                        <ul class="nav nav-treeview">
-                            {{-- reception --}}
-                            <li class="navπ-item">
-                                <a href="{{ route('admin.reception.index') }}" class="nav-link @yield('reception')">
-                                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                    <p>Data Penerimaan</p>
-                                </a>
-                            </li>
-                            {{-- distributor --}}
-                            {{-- <li class="nav
+                    <ul class="nav nav-treeview">
+                        {{-- reception --}}
+                        <li class="navπ-item">
+                            <a href="{{ route('admin.reception.index') }}" class="nav-link @yield('reception')">
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                <p>Data Penerimaan</p>
+                            </a>
+                        </li>
+                        {{-- distributor --}}
+                        {{-- <li class="nav
                              --}}
-                            {{-- expenditureMal --}}
-                            <li class="nav-item">
-                                <a href="{{ route('admin.expenditureMal.index') }}"
-                                    class="nav-link @yield('expenditureMal')">
-                                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                    <p>Data Pengeluran</p>
-                                </a>
-                            </li>
-                        </ul>
-                    </li>
-                @endif
+                        {{-- expenditureMal --}}
+                        <li class="nav-item">
+                            <a href="{{ route('admin.expenditureMal.index') }}" class="nav-link @yield('expenditureMal')">
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                <p>Data Pengeluran</p>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+                {{-- @endif --}}
 
                 @if (Auth::User()->role == 'admin')
                     <li class="nav-item @yield('data.kas')">
