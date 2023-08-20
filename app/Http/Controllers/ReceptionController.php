@@ -19,7 +19,7 @@ class ReceptionController extends Controller
             $receptions->whereYear('priode', $request->year);
         }
 
-        $receptions = $receptions->get();
+        $receptions = $receptions->orderBy('created_at', 'desc')->get();
 
         return view('admin.pages.reception.index', compact('receptions'));
     }

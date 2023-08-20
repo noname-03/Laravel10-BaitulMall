@@ -19,7 +19,9 @@ class ExpenditureController extends Controller
             $expenditures->whereMonth('date', $month);
         }
 
-        $expenditures = $expenditures->get();
+        //sort by asc
+
+        $expenditures = $expenditures->orderBy('created_at', 'desc')->get();
 
         return view('admin.pages.expenditure.index', compact('expenditures'));
     }

@@ -1,6 +1,10 @@
 @extends('admin.layouts.app')
 @section('title', 'Data Muzaki')
-@section('data.master', 'menu-open')
+@if (Auth::user()->role == 'user')
+    @section('data.master', 'menu-open')
+@else
+    @section('data.baitul.mal', 'menu-open')
+@endif
 @section('muzaki', 'active')
 @section('content')
     <div class="content-wrapper">
@@ -37,6 +41,7 @@
                                             <th>Rt</th>
                                             <th>Rw</th>
                                             <th>Jenis</th>
+                                            <th>Tanggal</th>
                                             <th>Jumlah</th>
                                             <th style="width: 30%">Alamat</th>
                                             <th style="width: 18%">Action</th>
@@ -50,6 +55,7 @@
                                                 <td>{{ $item->rt }}</td>
                                                 <td>{{ $item->rw }}</td>
                                                 <td>{{ $item->type }}</td>
+                                                <td>{{ $item->date }}</td>
                                                 <td>@currency($item->amount)</td>
                                                 <td>{{ $item->address }}</td>
                                                 <td style="text-align: center;">

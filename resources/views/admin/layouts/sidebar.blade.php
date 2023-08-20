@@ -3,7 +3,7 @@
     <a href="/home" class="brand-link">
         <img src="{{ asset('admin/dist/images/LOGO_BAITUL_MALL.png') }}" alt="AdminLTE Logo"
             class="brand-image img-circle elevation-2" style="opacity: .8">
-        <span class="brand-text">Baitul MallKlangenan</span>
+        <span class="brand-text">Baitul Mal Klangenan</span>
     </a>
 
     <!-- Sidebar -->
@@ -40,7 +40,7 @@
                     </a>
 
                     <ul class="nav nav-treeview">
-                        @if (Auth::User()->role == 'user')
+                        @if (Auth::user()->role == 'user')
                             {{-- muzaki --}}
                             <li class="nav-item">
                                 <a href="{{ route('admin.muzaki.index') }}" class="nav-link @yield('muzaki')">
@@ -56,20 +56,20 @@
                                 </a>
                             </li>
                         @endif
-                        {{-- guidelines --}}
-                        <li class="nav-item">
-                            <a href="{{ route('admin.guidelines.index') }}" class="nav-link @yield('guidelines')">
-                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                <p>Data Pedoman</p>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="{{ route('admin.organization.index') }}" class="nav-link @yield('organization')">
-                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                <p>Data Organisasi</p>
-                            </a>
-                        </li>
                         @if (Auth::User()->role == 'admin')
+                            {{-- guidelines --}}
+                            <li class="nav-item">
+                                <a href="{{ route('admin.guidelines.index') }}" class="nav-link @yield('guidelines')">
+                                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                    <p>Data Pedoman</p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="{{ route('admin.organization.index') }}" class="nav-link @yield('organization')">
+                                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                    <p>Data Organisasi</p>
+                                </a>
+                            </li>
                             {{-- slide --}}
                             <li class="nav-item">
                                 <a href="{{ route('admin.slide.index') }}" class="nav-link @yield('slide')">
@@ -107,17 +107,33 @@
                     <a href="#" class="nav-link @yield('nav.baitul.mal')">
                         <i class="nav-icon fas fa-handshake"></i>
                         <p>
-                            Data Baitul Mal
+                            Laporan Baitul Mal
                             <i class="fas fa-angle-left right"></i>
                         </p>
                     </a>
 
                     <ul class="nav nav-treeview">
+                        @if (Auth::user()->role == 'admin')
+                            {{-- muzaki --}}
+                            <li class="nav-item">
+                                <a href="{{ route('admin.muzaki.index') }}" class="nav-link @yield('muzaki')">
+                                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                    <p>Data Muzaki</p>
+                                </a>
+                            </li>
+                            {{-- mustahik --}}
+                            <li class="nav-item">
+                                <a href="{{ route('admin.mustahik.index') }}" class="nav-link @yield('mustahik')">
+                                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                    <p>Data Mustahik</p>
+                                </a>
+                            </li>
+                        @endif
                         {{-- reception --}}
                         <li class="navπ-item">
                             <a href="{{ route('admin.reception.index') }}" class="nav-link @yield('reception')">
                                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                <p>Data Penerimaan</p>
+                                <p>Laporan Penerimaan</p>
                             </a>
                         </li>
                         {{-- distributor --}}
@@ -127,7 +143,7 @@
                         <li class="nav-item">
                             <a href="{{ route('admin.expenditureMal.index') }}" class="nav-link @yield('expenditureMal')">
                                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                <p>Data Pengeluran</p>
+                                <p>Laporan Pengeluran</p>
                             </a>
                         </li>
                     </ul>
@@ -182,6 +198,25 @@
                                 </a>
                             </li>
                         </ul>
+                    </li>
+                @endif
+
+                @if (Auth::user()->role == 'user')
+                    <li class="nav-item">
+                        <a href="{{ route('admin.guidelines.index') }}" class="nav-link @yield('guidelines')">
+                            <i class="nav-icon fas fa-book"></i>
+                            <p>
+                                Pedoman
+                            </p>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="{{ route('admin.organization.index') }}" class="nav-link @yield('organization')">
+                            <i class="nav-icon fas fa-book"></i>
+                            <p>
+                                Struktur Organisasi
+                            </p>
+                        </a>
                     </li>
                 @endif
             </ul>

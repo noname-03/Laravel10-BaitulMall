@@ -17,7 +17,7 @@ return new class extends Migration {
             $table->string('rw');
             $table->text('address');
             $table->string('type');
-            $table->string('photo');
+            $table->string('photo')->nullable();
             $table->double('amount');
             $table->date('date');
             $table->timestamps();

@@ -19,7 +19,7 @@ class IncomeController extends Controller
             $incomes->whereMonth('date', $month);
         }
 
-        $incomes = $incomes->get();
+        $incomes = $incomes->orderBy('created_at', 'desc')->get();
 
         return view('admin.pages.income.index', compact('incomes'));
     }

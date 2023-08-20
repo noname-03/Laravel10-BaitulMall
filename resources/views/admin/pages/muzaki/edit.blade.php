@@ -1,6 +1,11 @@
 @extends('admin.layouts.app')
 @section('title', 'Perbarui Data Muzaki')
-@section('data.master', 'menu-open')
+@if (Auth::user()->role == 'user')
+    @section('data.master', 'menu-open')
+@else
+    @section('data.baitul.mal', 'menu-open')
+@endif
+@section('data.baitul.mal', 'menu-open')
 @section('muzaki', 'active')
 @section('content')
     <div class="content-wrapper" style="min-height: 1345.31px;">

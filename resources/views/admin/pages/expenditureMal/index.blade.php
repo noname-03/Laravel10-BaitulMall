@@ -9,7 +9,7 @@
             <div class="container-fluid">
                 <div class="row mb-2">
                     <div class="col-sm-6">
-                        <h1>Data Pengeluaran</h1>
+                        <h1>Laporan Pengeluaran</h1>
                     </div>
                 </div>
             </div><!-- /.container-fluid -->
@@ -64,7 +64,7 @@
                                             <tr>
                                                 <td>{{ $loop->iteration }}</td>
                                                 <td>{{ $item->description }}</td>
-                                                <td>{{ $item->priode }}</td>
+                                                <td>{{ date('Y', strtotime($item->priode)) }}</td>
                                                 <td>@currency($item->amount)</td>
                                                 @if (Auth::user()->role == 'user')
                                                     <td style="text-align: center;">

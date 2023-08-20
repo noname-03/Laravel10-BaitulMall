@@ -12,7 +12,7 @@ class MuzakiController extends Controller
      */
     public function index()
     {
-        $muzaki = Muzaki::all();
+        $muzaki = Muzaki::orderBy('created_at', 'desc')->get();
         return view('admin.pages.muzaki.index', compact('muzaki'));
     }
 

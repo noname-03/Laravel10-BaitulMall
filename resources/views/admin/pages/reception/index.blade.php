@@ -9,7 +9,7 @@
             <div class="container-fluid">
                 <div class="row mb-2">
                     <div class="col-sm-6">
-                        <h1>Data Penerimaan</h1>
+                        <h1>Laporan Penerimaan</h1>
                     </div>
                 </div>
             </div><!-- /.container-fluid -->
@@ -63,7 +63,7 @@
                                             <tr>
                                                 <td>{{ $loop->iteration }}</td>
                                                 <td>{{ $item->rw }}</td>
-                                                <td>{{ $item->priode }}</td>
+                                                <td>{{ date('Y', strtotime($item->priode)) }}</td>
                                                 <td>{{ $item->number_people }} Orang</td>
                                                 <td>@currency($item->amount)</td>
                                                 <td style="text-align: center;">

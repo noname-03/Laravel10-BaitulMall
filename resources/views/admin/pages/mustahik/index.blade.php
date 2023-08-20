@@ -1,6 +1,10 @@
 @extends('admin.layouts.app')
 @section('title', 'Data Mustahik')
-@section('data.master', 'menu-open')
+@if (Auth::user()->role == 'user')
+    @section('data.master', 'menu-open')
+@else
+    @section('data.baitul.mal', 'menu-open')
+@endif
 @section('mustahik', 'active')
 @section('content')
     <div class="content-wrapper">
@@ -36,7 +40,7 @@
                                             <th>Nama</th>
                                             <th>Rt</th>
                                             <th>Rw</th>
-                                            <th>Jenis</th>
+                                            <th>Golongan</th>
                                             <th>Tanggal</th>
                                             <th>Nominal</th>
                                             <th style="width: 30%">Alamat</th>
@@ -56,8 +60,12 @@
                                                 <td>@currency($item->amount)</td>
                                                 <td>{{ $item->address }}</td>
                                                 <td>
-                                                    <img src="{{ asset('file/' . $item->photo) }}" width="100"
-                                                        height="100">
+                                                    @if ($item->photo == null)
+                                                        <p>Tidak ada photo</p>
+                                                    @else
+                                                        <img src="{{ asset('file/' . $item->photo) }}" width="100"
+                                                            height="100">
+                                                    @endif
                                                 </td>
                                                 <td style="text-align: center;">
                                                     <form action="{{ route('admin.mustahik.destroy', $item->id) }}"

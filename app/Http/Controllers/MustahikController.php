@@ -13,7 +13,7 @@ class MustahikController extends Controller
      */
     public function index()
     {
-        $mustahik = Mustahik::all();
+        $mustahik = Mustahik::orderBy('created_at', 'desc')->get();
         return view('admin.pages.mustahik.index', compact('mustahik'));
     }
 
@@ -36,14 +36,18 @@ class MustahikController extends Controller
             'type' => 'required',
             'rt' => 'required|numeric',
             'rw' => 'required|numeric',
-            'file' => 'required',
             'amount' => 'required|numeric',
             'date' => 'required|date',
         ]);
-        //upload photo
-        $imageName = time() . '.' . $request->file->extension();
-        $request->file->move(public_path('file/'), $imageName);
-        $request['photo'] = $imageName;
+        if ($request->hasFile('file')) {
+            $request->validate([
+                'file' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            ]);
+            //upload photo
+            $imageName = time() . '.' . $request->file->extension();
+            $request->file->move(public_path('file/'), $imageName);
+            $request['photo'] = $imageName;
+        }
         Mustahik::create($request->except('file'));
         return redirect()->route('admin.mustahik.index');
     }

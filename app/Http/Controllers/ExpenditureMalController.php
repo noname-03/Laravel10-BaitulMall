@@ -18,7 +18,7 @@ class ExpenditureMalController extends Controller
             $expenditureMals->whereYear('priode', $request->year);
         }
 
-        $expenditureMals = $expenditureMals->get();
+        $expenditureMals = $expenditureMals->orderBy('created_at', 'desc')->get();
 
         return view('admin.pages.expenditureMal.index', compact('expenditureMals'));
     }

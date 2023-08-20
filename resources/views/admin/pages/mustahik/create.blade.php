@@ -1,6 +1,10 @@
 @extends('admin.layouts.app')
 @section('title', 'Tambah Data Mustahik')
-@section('data.master', 'menu-open')
+@if (Auth::user()->role == 'user')
+    @section('data.master', 'menu-open')
+@else
+    @section('data.baitul.mal', 'menu-open')
+@endif
 @section('mustahik', 'active')
 @section('content')
     <div class="content-wrapper" style="min-height: 1345.31px;">
@@ -71,7 +75,7 @@
                                             @enderror
                                         </div>
                                         <div class="form-group col-md-4">
-                                            <label>Jenis</label>
+                                            <label>Golongan</label>
                                             <select class="form-control" name="type">
                                                 <option value="fakir">Fakir</option>
                                                 <option value="miskin">Miskin</option>
