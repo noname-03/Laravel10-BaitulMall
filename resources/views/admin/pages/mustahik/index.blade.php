@@ -26,10 +26,27 @@
                     <div class="col-12">
                         <div class="card">
                             <div class="card-header">
-                                <a href="{{ route('admin.mustahik.create') }}" type="button"
-                                    class="btn btn-primary btn-sm">Tambah
-                                    Data</a>
-
+                                @if (Auth::user()->role == 'user')
+                                    <a href="{{ route('admin.mustahik.create') }}" type="button"
+                                        class="btn btn-primary btn-sm">Tambah
+                                        Data</a>
+                                @endif
+                                <div class="btn-group">
+                                    <div class="dropdown">
+                                        <button class="btn btn-info btn-sm dropdown-toggle" type="button"
+                                            id="filterDropdown" data-toggle="dropdown">
+                                            Filter
+                                        </button>
+                                        <div class="dropdown-menu" aria-labelledby="filterDropdown">
+                                            <a class="dropdown-item" href="{{ route('admin.mustahik.index') }}">Semua</a>
+                                            <div class="dropdown-divider"></div>
+                                            @for ($year = date('Y'); $year >= 2020; $year--)
+                                                <a class="dropdown-item"
+                                                    href="{{ route('admin.mustahik.index', ['year' => $year]) }}">{{ $year }}</a>
+                                            @endfor
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                             <!-- /.card-header -->
                             <div class="card-body">
@@ -45,7 +62,9 @@
                                             <th>Nominal</th>
                                             <th style="width: 30%">Alamat</th>
                                             <th>photo</th>
-                                            <th style="width: 18%">Action</th>
+                                            @if (Auth::user()->role == 'user')
+                                                <th style="width: 18%">Action</th>
+                                            @endif
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -67,23 +86,27 @@
                                                             height="100">
                                                     @endif
                                                 </td>
-                                                <td style="text-align: center;">
-                                                    <form action="{{ route('admin.mustahik.destroy', $item->id) }}"
-                                                        method="POST">
-                                                        @method('DELETE') @csrf
-                                                        <div class="btn-group" role="group" aria-label="Basic example">
-                                                            <a href="{{ route('admin.mustahik.edit', $item->id) }}"
-                                                                class="btn btn-sm btn-outline-secondary">
-                                                                Edit
-                                                            </a>
-                                                            <button type="submit" onclick="return confirm('Are you sure?')"
-                                                                class="btn btn-sm btn-outline-danger">
-                                                                Delete
-                                                            </button>
-                                                        </div>
-                                                    </form>
+                                                @if (Auth::user()->role == 'user')
+                                                    <td style="text-align: center;">
+                                                        <form action="{{ route('admin.mustahik.destroy', $item->id) }}"
+                                                            method="POST">
+                                                            @method('DELETE') @csrf
+                                                            <div class="btn-group" role="group"
+                                                                aria-label="Basic example">
+                                                                <a href="{{ route('admin.mustahik.edit', $item->id) }}"
+                                                                    class="btn btn-sm btn-outline-secondary">
+                                                                    Edit
+                                                                </a>
+                                                                <button type="submit"
+                                                                    onclick="return confirm('Are you sure?')"
+                                                                    class="btn btn-sm btn-outline-danger">
+                                                                    Delete
+                                                                </button>
+                                                            </div>
+                                                        </form>
 
-                                                </td>
+                                                    </td>
+                                                @endif
                                             </tr>
                                         @endforeach
                                     </tbody>
@@ -106,23 +129,42 @@
     <!-- Page specific script -->
     <script>
         $(function() {
-            $("#example3").DataTable({
-                "responsive": true,
-                "lengthChange": false,
-                "autoWidth": false,
-                "buttons": [{
+            var userRole = '<?php echo Auth::user()->role; ?>';
+
+            var buttons = [{
+                    extend: 'pdf',
+                    exportOptions: {
+                        columns: 'th:not(:nth-last-child(-n+2))'
+                    }
+                },
+                {
+                    extend: 'excel',
+                    exportOptions: {
+                        columns: 'th:not(:nth-last-child(-n+2))'
+                    }
+                }
+            ];
+
+            if (userRole === 'admin') {
+                buttons = [{
                         extend: 'pdf',
                         exportOptions: {
-                            columns: 'th:not(:nth-last-child(-n+2))' // Kecualikan dua kolom terakhir
+                            columns: 'th:not(:last-child)'
                         }
                     },
                     {
                         extend: 'excel',
                         exportOptions: {
-                            columns: 'th:not(:nth-last-child(-n+2))' // Kecualikan dua kolom terakhir
+                            columns: 'th:not(:last-child)'
                         }
                     }
-                ],
+                ];
+            }
+            $("#example3").DataTable({
+                "responsive": true,
+                "lengthChange": false,
+                "autoWidth": false,
+                "buttons": buttons
             }).buttons().container().appendTo('#example3_wrapper .col-md-6:eq(0)');
         });
     </script>

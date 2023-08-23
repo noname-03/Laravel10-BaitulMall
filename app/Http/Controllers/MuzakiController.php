@@ -10,9 +10,14 @@ class MuzakiController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(Request $request)
     {
-        $muzaki = Muzaki::orderBy('created_at', 'desc')->get();
+        $muzaki = Muzaki::query();
+        // jika ada request year maka lakukan sorting
+        if ($request->has('year')) {
+            $muzaki->whereYear('date', $request->year);
+        }
+        $muzaki = $muzaki->orderBy('created_at', 'desc')->get();
         return view('admin.pages.muzaki.index', compact('muzaki'));
     }
 

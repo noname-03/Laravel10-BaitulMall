@@ -11,9 +11,15 @@ class MustahikController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(Request $request)
     {
-        $mustahik = Mustahik::orderBy('created_at', 'desc')->get();
+        $mustahik = Mustahik::query();
+        // jika ada request year maka lakukan sorting
+        if ($request->has('year')) {
+            $mustahik->whereYear('date', $request->year);
+        }
+
+        $mustahik = $mustahik->orderBy('created_at', 'desc')->get();
         return view('admin.pages.mustahik.index', compact('mustahik'));
     }
 

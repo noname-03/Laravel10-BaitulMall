@@ -106,10 +106,17 @@
                 <li class="nav-item @yield('data.baitul.mal')">
                     <a href="#" class="nav-link @yield('nav.baitul.mal')">
                         <i class="nav-icon fas fa-handshake"></i>
-                        <p>
-                            Laporan Baitul Mal
-                            <i class="fas fa-angle-left right"></i>
-                        </p>
+                        @if (Auth::user()->role == 'user')
+                            <p>
+                                Laporan Baitul Mal
+                                <i class="fas fa-angle-left right"></i>
+                            </p>
+                        @else
+                            <p>
+                                Baitul Mal
+                                <i class="fas fa-angle-left right"></i>
+                            </p>
+                        @endif
                     </a>
 
                     <ul class="nav nav-treeview">
