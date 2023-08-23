@@ -90,7 +90,7 @@
                             fa-arrow-circle-right">
                                     </i></a>
                             @else
-                                <a href="{{ route('admin.reception.index') }}" class="small-box-footer">More info <i
+                                <a href="{{ route('admin.muzaki.index') }}" class="small-box-footer">More info <i
                                         class="fas
                                 fa-arrow-circle-right">
                                     </i></a>
@@ -114,10 +114,10 @@
                             fa-arrow-circle-right">
                                     </i></a>
                             @else
-                                <a href="{{ route('admin.expenditureMal.index') }}" class="small-box-footer">More info <i
+                                {{-- <a href="{{ route('admin.expenditureMal.index') }}" class="small-box-footer">More info <i
                                         class="fas
                                 fa-arrow-circle-right">
-                                    </i></a>
+                                    </i></a> --}}
                             @endif
                         </div>
                     </div>

@@ -54,8 +54,10 @@ class HomeController extends Controller
         } else {
             $user = Mustahik::count();
             $admin = Muzaki::count();
-            $totalIncome = Reception::sum('amount');
-            $totalExpenditure = ExpenditureMal::sum('amount');
+            $totalIncome = Mustahik::sum('amount');
+            $a = Reception::sum('amount');
+            $b = ExpenditureMal::sum('amount');
+            $totalExpenditure = $a + $b;
 
             $monthlyIncome = Reception::selectRaw('MONTH(priode) as month, SUM(amount) as total_amount')
                 ->groupBy('month')
