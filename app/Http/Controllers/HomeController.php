@@ -54,7 +54,7 @@ class HomeController extends Controller
         } else {
             $user = Mustahik::count();
             $admin = Muzaki::count();
-            $totalIncome = Mustahik::sum('amount');
+            $totalIncome = Muzaki::sum('amount');
             $a = Reception::sum('amount');
             $b = ExpenditureMal::sum('amount');
             $totalExpenditure = $a + $b;
