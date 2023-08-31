@@ -140,6 +140,13 @@
                         <li class="navπ-item">
                             <a href="{{ route('admin.reception.index') }}" class="nav-link @yield('reception')">
                                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                <p>Laporan Penyaluran</p>
+                            </a>
+                        </li>
+                        {{-- approval --}}
+                        <li class="navπ-item">
+                            <a href="{{ route('admin.approval.index') }}" class="nav-link @yield('approval')">
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                                 <p>Laporan Penerimaan</p>
                             </a>
                         </li>

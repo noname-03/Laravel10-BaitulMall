@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Approval;
 use App\Models\Expenditure;
 use App\Models\ExpenditureMal;
 use App\Models\Income;
@@ -54,7 +55,7 @@ class HomeController extends Controller
         } else {
             $user = Mustahik::count();
             $admin = Muzaki::count();
-            $totalIncome = Muzaki::sum('amount');
+            $totalIncome = Approval::sum('amount');
             $a = Reception::sum('amount');
             $b = ExpenditureMal::sum('amount');
             $totalExpenditure = $a + $b;

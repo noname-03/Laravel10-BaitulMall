@@ -1,7 +1,7 @@
 @extends('admin.layouts.app')
-@section('title', 'Data Penyaluran')
+@section('title', 'Data Penerimaan')
 @section('data.baitul.mal', 'menu-open')
-@section('reception', 'active')
+@section('approval', 'active')
 @section('content')
     <div class="content-wrapper">
         <!-- Content Header (Page header) -->
@@ -9,7 +9,7 @@
             <div class="container-fluid">
                 <div class="row mb-2">
                     <div class="col-sm-6">
-                        <h1>Laporan Penyaluran</h1>
+                        <h1>Laporan Penerimaan</h1>
                     </div>
                 </div>
             </div><!-- /.container-fluid -->
@@ -22,10 +22,10 @@
                     <div class="col-12">
                         <div class="card">
                             <div class="card-header">
-                                {{-- <a href="{{ route('admin.reception.create') }}" type="button"
+                                {{-- <a href="{{ route('admin.approval.create') }}" type="button"
                                     class="btn btn-primary btn-sm">Tambah
                                     Data</a> --}}
-                                <a href="{{ route('admin.reception.refresh') }}" type="button"
+                                <a href="{{ route('admin.approval.refresh') }}" type="button"
                                     class="btn btn-success btn-sm">Refresh</a>
                                 <div class="btn-group">
                                     <div class="dropdown">
@@ -34,11 +34,11 @@
                                             Filter
                                         </button>
                                         <div class="dropdown-menu" aria-labelledby="filterDropdown">
-                                            <a class="dropdown-item" href="{{ route('admin.reception.index') }}">Semua</a>
+                                            <a class="dropdown-item" href="{{ route('admin.approval.index') }}">Semua</a>
                                             <div class="dropdown-divider"></div>
                                             @for ($year = date('Y'); $year >= 2020; $year--)
                                                 <a class="dropdown-item"
-                                                    href="{{ route('admin.reception.index', ['year' => $year]) }}">{{ $year }}</a>
+                                                    href="{{ route('admin.approval.index', ['year' => $year]) }}">{{ $year }}</a>
                                             @endfor
                                         </div>
                                     </div>
@@ -52,14 +52,14 @@
                                         <tr>
                                             <th style="width: 7%">No</th>
                                             <th>Rw</th>
-                                            <th>Periode</th>
+                                            <th>Tahun</th>
                                             <th>Total Orang</th>
                                             <th>Total Nominal</th>
                                             <th style="width: 18%">Action</th>
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        @foreach ($receptions as $item)
+                                        @foreach ($approvals as $item)
                                             <tr>
                                                 <td>{{ $loop->iteration }}</td>
                                                 <td>{{ $item->rw }}</td>
@@ -67,11 +67,11 @@
                                                 <td>{{ $item->number_people }} Orang</td>
                                                 <td>@currency($item->amount)</td>
                                                 <td style="text-align: center;">
-                                                    <form action="{{ route('admin.reception.destroy', $item->id) }}"
+                                                    <form action="{{ route('admin.approval.destroy', $item->id) }}"
                                                         method="POST">
                                                         @method('DELETE') @csrf
                                                         <div class="btn-group" role="group" aria-label="Basic example">
-                                                            {{-- <a href="{{ route('admin.reception.edit', $item->id) }}"
+                                                            {{-- <a href="{{ route('admin.approval.edit', $item->id) }}"
                                                                 class="btn btn-sm btn-outline-secondary">
                                                                 Edit
                                                             </a> --}}

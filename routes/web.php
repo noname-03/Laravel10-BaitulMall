@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AboutController;
+use App\Http\Controllers\ApprovalController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\DistributorController;
 use App\Http\Controllers\ExpenditureController;
@@ -33,6 +34,7 @@ Route::get('/contact', [GuestController::class, 'contact'])->name('guest.contact
 Route::prefix('/admin')->name('admin.')->middleware('auth')->group(function () {
     Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
     Route::get('/reception/refresh', [ReceptionController::class, 'refresh'])->name('reception.refresh');
+    Route::get('/apporval/refresh', [ApprovalController::class, 'refresh'])->name('approval.refresh');
     Route::resource('user', UserController::class);
     Route::resource('income', IncomeController::class);
     Route::resource('income', IncomeController::class);
@@ -48,6 +50,7 @@ Route::prefix('/admin')->name('admin.')->middleware('auth')->group(function () {
     Route::resource('guidelines', GuidelinesController::class);
     Route::resource('organization', OrganizationController::class);
     Route::resource('contact', ContactController::class);
+    Route::resource('approval', ApprovalController::class);
 
 
     // Route::get('/reception/refresh', [ReceptionController::class, 'refresh'])->name('reception.refresh');

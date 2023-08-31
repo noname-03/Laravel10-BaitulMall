@@ -90,7 +90,7 @@
                             fa-arrow-circle-right">
                                     </i></a>
                             @else
-                                <a href="{{ route('admin.muzaki.index') }}" class="small-box-footer">More info <i
+                                <a href="{{ route('admin.approval.index') }}" class="small-box-footer">More info <i
                                         class="fas
                                 fa-arrow-circle-right">
                                     </i></a>
