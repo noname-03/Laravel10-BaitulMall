@@ -22,7 +22,7 @@
         <!-- /.login-logo -->
         <div class="card card-outline card-primary">
             <div class="card-header text-center">
-                <p class="h1"><b>Baitul Mall</b> Klangenan</p>
+                <p class="h1"><b>Baitul Mal</b> Klangenan</p>
             </div>
             <div class="card-body">
                 <p class="login-box-msg">Silahkan Login Menggunakan Email Dan Password Yang Sudah Di Berikan Admin

@@ -90,7 +90,7 @@
                 <div class="row justify-content-between">
                     <div class="col-md-6 text-center text-md-start mb-3 mb-md-0">
                         <div class="copyright">
-                            © Copyright <strong><span>Baitul Mall</span></strong>. All Rights Reserved
+                            © <strong><span>Baitul Mal</span></strong> Desa Klangenan
                         </div>
 
                         <div class="credits">
