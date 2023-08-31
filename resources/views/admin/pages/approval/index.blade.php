@@ -63,7 +63,7 @@
                                             <tr>
                                                 <td>{{ $loop->iteration }}</td>
                                                 <td>{{ $item->rw }}</td>
-                                                <td>{{ date('Y', strtotime($item->priode)) }}</td>
+                                                <td>{{ date('Y', strtotime($item->date)) }}</td>
                                                 <td>{{ $item->number_people }} Orang</td>
                                                 <td>@currency($item->amount)</td>
                                                 <td style="text-align: center;">
